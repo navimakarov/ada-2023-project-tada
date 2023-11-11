@@ -1,0 +1,6 @@
+gdown
+plotly
+googlemaps
+numpy
+pandas
+openai
