@@ -4,3 +4,4 @@ googlemaps
 numpy
 pandas
 openai
+sklearn

@@ -2,3 +2,4 @@ movie_summaries.tar.gz
 .ipynnb_checkpoints
 .DS_Store
 data
+__pycache__
