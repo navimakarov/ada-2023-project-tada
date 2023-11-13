@@ -63,11 +63,12 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     cities = [city for city in cities if len(cities_movies[city]) >= 10]
     cities_movies = {city: cities_movies[city] for city in cities}
     
+    # These are corrections to the errors that ChatGPT made
     broken_countries = ['unknown', 'unspecified', 'None', 'Moon', '', 'Africa', 'fictional', 'Unknown']
     broken_cities = ['unknown', 'unspecified', 'None', 'Moon', '', 'village', 'town', 'small village', 'small town', 'remote village', 'hospital', 'fishing village', 'desert', 'countryside', 'city', 'big city', 'Unnamed City', 'Unknown', 'Town', 'Times Square',  'Small Town', 'Small town',  'Paradise',
                      'Gotham City', 'Europe', 'Earth', 'City', 'Atlantic City', 'Metropolis']
 
-    countries_in_cities = ['Russia', 'New Zealand', 'Mexico', 'Jamaica', 'Japan', 'Italy', 'Panama', 'Rome', 'Singapore', 'Switzerland', 'Sweden', 'Spain','Germany', 'England', 'Egypt', 'China', 'Alexandria', 'America', 'France', 'Holland', 'Brazil', 'Vietnam', 'Greece', 'Thailand']
+    countries_in_cities = ['Russia', 'Australia', 'Canada', 'United States', 'India', 'Iraq', 'New Zealand', 'Mexico', 'Jamaica', 'Japan', 'Italy', 'Panama', 'Rome', 'Singapore', 'Switzerland', 'Sweden', 'Spain','Germany', 'England', 'Egypt', 'China', 'Alexandria', 'America', 'France', 'Holland', 'Brazil', 'Vietnam', 'Greece', 'Thailand']
     cities_to_merge = [
         ['Washington D.C.', 'Washington', 'Washington DC', 'Washington, D.C.', 'Washington, DC'],
         ['Texas', 'Texas town'],
@@ -128,6 +129,9 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     
     
 def load_data(data_path):
+    """
+    Does all data loading and preprocessing
+    """
     character_metadata = pd.read_csv(data_path + 'MovieSummaries/character.metadata.tsv', 
                                  sep='\t', 
                                  names= [
@@ -188,6 +192,9 @@ def load_data(data_path):
 
 client = OpenAI()
 def get_embedding(text, model="text-embedding-ada-002"):
+    """
+    Get the embedding of a text using the OpenAI API
+    """
     global client
     text = text.replace("\n", " ")
     text = text.replace("\t", " ")
