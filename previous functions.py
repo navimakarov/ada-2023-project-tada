@@ -60,3 +60,25 @@ berlin_movies = regrouped_by_city_and_country.get('Berlin', {})
 for country, movie_ids in berlin_movies.items():
     print(f"Movies in Berlin from {country}: {movie_ids}")
  """
+
+
+
+# Create a dictionary to store filtered movie IDs for each city
+foreign_movies = {}
+
+# Iterate over cities in cities_in_country
+for country, cities in cities_in_country.items():
+    for city in cities:
+        filtered_movie_ids = []
+        city_movies = city_lists.get(city, [])  # Get movies for the current city
+        for movie_id in city_movies:
+            matching_movies = movie_metadata[movie_metadata['Wikipedia movie ID'] == movie_id]
+            if not matching_movies.empty:
+                movie_country = matching_movies.iloc[0]['Country']
+                if movie_country is not None and movie_country != country:
+                    filtered_movie_ids.append(movie_id)
+        foreign_movies[city] = filtered_movie_ids
+
+# Print the filtered lists for each city
+for city, movie_ids in foreign_movies.items():
+    print(f"{city}: {movie_ids}")
