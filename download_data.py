@@ -1,4 +1,10 @@
-# We will download the dataset + the processed embeddings(obtained via the calculate-embeddings.ipynb notebook) from Google Drive
+##################################################
+# Script that downloads our data from Google Drive
+##################################################
+
+# We will download the dataset + the processed embeddings(obtained via the calculate-embeddings.ipynb notebook)
+# + the movie_analysis.json file from Google Drive
+
 import gdown
 import os
 

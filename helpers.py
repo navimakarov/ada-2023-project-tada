@@ -1,3 +1,8 @@
+##############################################
+# This file contains all the helper functions
+# that we use in the notebook
+##############################################
+
 import pandas as pd
 import numpy as np
 import warnings
@@ -74,6 +79,11 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
         ['Texas', 'Texas town'],
         ['New York', 'New York City'],
     ]
+    
+    countries_to_merge = [
+        ['United Kingdom', 'England', 'UK'],
+        ['Ireland', 'Northern Ireland'],
+    ]
 
 
     # We will now remove all the broken countries and cities
@@ -107,7 +117,19 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
                     cities_movies[cities_to_merge_list[0]] = list(set(cities_movies[cities_to_merge_list[0]]))
                     del cities_movies[city]
                     cities.remove(city)
+                    
+    # We will now merge the countries that are in countries_to_merge
+    for countries_to_merge_list in countries_to_merge:
+        if countries_to_merge_list[0] in countries:
+            for country in countries_to_merge_list[1:]:
+                if country in countries:
+                    countries_movies[countries_to_merge_list[0]] += countries_movies[country]
+                    countries_movies[countries_to_merge_list[0]] = list(set(countries_movies[countries_to_merge_list[0]]))
+                    del countries_movies[country]
+                    countries.remove(country)
 
+
+    # We get and aggregate the embeddings of the movies in the cities and countries
     embeddings_of_movies_in_cities = { city: [] for city in cities }
     embeddings_of_movies_in_countries = { country: [] for country in countries }
 
@@ -117,6 +139,7 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     for city_country in countries:
         embeddings_of_movies_in_countries[city_country] = np.array(combined_plot_summaries.loc[combined_plot_summaries['Wikipedia movie ID'].isin(countries_movies[city_country])]['embedding'].values.tolist())
 
+    # We return this as a dict
     return {
         'cities': cities,
         'countries': countries,
@@ -174,11 +197,10 @@ def load_data(data_path):
     
     # Combine on the first column of embeddings
     combined_plot_summaries = pd.merge(plot_summaries, embeddings_df, on='Wikipedia movie ID')
-    
     embeddings = np.array(embeddings[:,1].tolist())
     
+    # We load the city and country analysis
     city_country_analysis = load_city_country_analysis(combined_plot_summaries, data_path)
-    
     
     return {
         'character_metadata': character_metadata,
@@ -193,22 +215,27 @@ def load_data(data_path):
 client = OpenAI()
 def get_embedding(text, model="text-embedding-ada-002"):
     """
-    Get the embedding of a text using the OpenAI API
+    Get the embedding of a text using the OpenAI API.
+    Can be used for similarity of movies, characters or for queries.
     """
     global client
+    
+    # We replace all line breaks with spaces
     text = text.replace("\n", " ")
     text = text.replace("\t", " ")
     text = text.replace("\r", " ")
     text = text.replace("\x0b", " ")
     text = text.replace("\x0c", " ")
+    
+    # We call the API and if it fails we wait 60 seconds.
     try:
         embedding = client.embeddings.create(input=[text], model=model).data[0].embedding
-
         if embedding is None:
             print(f"Failed to process text: {text}. Error: embedding is None")
             return None
         return embedding
     except Exception as e:
         print(f"Failed to process text: {text}. Error: {str(e)}")
+        # We wait 60 seconds because it means the API is rate limited
         time.sleep(60)
         return None
