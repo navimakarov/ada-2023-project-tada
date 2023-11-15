@@ -203,6 +203,36 @@ def load_data(data_path):
     
     # We load the city and country analysis
     city_country_analysis = load_city_country_analysis(combined_plot_summaries, data_path)
+
+    cities_in_country ={
+ 'Argentina':['Buenos Aires',],
+ 'Australia':['Adelaide','Brisbane'],
+ 'Belgium':['Brussels'],
+ 'Canada':['Calgary',],
+ 'Egypt':['Alexandria','Cairo'],
+ 'France':['Paris','Cannes'],
+ 'Germany':['Berlin'],
+ 'Greece':['Athens'],
+ 'Holland':['Amsterdam'],
+ 'Hungary':['Budapest'],
+ 'India':['Bangalore','Bombay','Calcutta','Chandigarh','Chennai'],
+ 'Iraq':['Baghdad'],
+ 'Ireland':['Belfast'],
+ 'Lebanon':['Beirut'],
+ 'Mexico':['Acapulco'],
+ 'Morocco':['Casablanca'],
+ 'Serbia':['Belgrade'],
+ 'South Africa':['Cape Town'],
+ 'South Korea':['Busan'],
+ 'Spain':['Barcelona'],
+ 'Thailand':['Bangkok'],
+ 'United Kingdom':['Bath','Birmingham','Blackpool','Brighton','Bristol','Cambridge','London'],
+ 'United States':['Alabama','Alaska','Albuquerque','Arizona','Arkansas','Atlanta','Auckland','Austin','Albany', 
+                  'Atlantic City','Bakersfield','Baltimore','Berkeley','Beverly Hills','Boston','Broadway',
+                  'Bronx','Brooklyn','Buffalo','California','Cape Cod','Central Park','Charleston','Chicago',
+                  'Cincinnati','New York'],
+ 'Venezuela':['Caracas'],
+}
     
     return {
         'character_metadata': character_metadata,
@@ -210,7 +240,8 @@ def load_data(data_path):
         'plot_summaries': plot_summaries,
         'embeddings': embeddings,
         'combined_plot_summaries': combined_plot_summaries,
-        'city_country_analysis': city_country_analysis
+        'city_country_analysis': city_country_analysis,
+        'cities_in_country' : cities_in_country
     }
     
 
@@ -241,3 +272,30 @@ def get_embedding(text, model="text-embedding-ada-002"):
         # We wait 60 seconds because it means the API is rate limited
         time.sleep(60)
         return None
+    
+def extract_country(country_string):
+    # Function to extract country name (first country name)
+    if country_string:
+        try:
+            country_dict = json.loads(country_string)  # Convert string to dictionary using json
+            if country_dict and isinstance(country_dict, dict):
+                country_values = list(country_dict.values())
+                if country_values:
+                    return country_values[0]
+        except json.JSONDecodeError:
+            # Handle the case where the string is not a valid JSON
+            pass
+    return None
+
+def get_color(ratio):
+    "Determine the color based on the ratio for plots"
+    if ratio < 1:
+        return 'blue'
+    elif 1 <= ratio < 1.5:
+        return 'green'
+    elif 1.5 <= ratio < 2:
+        return 'yellow'
+    elif 2 <= ratio < 2.5:
+        return 'orange'
+    else:
+        return 'red'
