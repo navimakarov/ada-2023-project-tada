@@ -34,7 +34,7 @@ Our goal is to provide insights into cinema's role in shaping global perspective
 
 ## Additional Datasets
 
-We plan to use the IMDb as an additional source of information, containing 7 datasets. The `title.ratings.tsv.gz` dataset contains useful information regarding the weighted average of all the individual user ratings. We want to use ratings instead of box office in order to measure how good a movie is; for example, comparing the revenues of two movies, one in 1980 and one in 2010 might not be the best comparison due to inflation.
+We already have the CMU movie database (containing plot summaries for 42,306 movies). Additionally, we plan to use the IMDb as an additional source of information, containing 7 datasets. The `title.ratings.tsv.gz` dataset contains useful information regarding the weighted average of all the individual user ratings. We want to use ratings instead of box office in order to measure how good a movie is; for example, comparing the revenues of two movies, one in 1980 and one in 2010 might not be the best comparison due to inflation.
 
 We will be able to easily handle the dataset size as it is not too large and we can use the API to query as much data as we need.
 
@@ -65,17 +65,17 @@ We will use a number of tools to answer our research questions, namely:
 
 ## Timeline
 
-### First week
+### First  (01 Dec - 07 Dec)
 - Discussing P2 Feedback and any remarks for P3.
 - Final adjustments with data processing.
 - Analysis on genre distributions.
-    - Explore the most popular genres (by cities/countries/continents)
-    - Explore the time aspect of this
+    - Explore the most popular genres (by cities/countries/continents).
+    - Explore the time aspect of this.
 - Analysis on historic events.
     - Explore wars.
     - Explore the time aspect of this.
 
-### Second week
+### Second week (08 Dec - 14 Dec)
 - Analysis on movie characters.
     - Antagonists and protagonists.
     - Name & gender representation.
@@ -86,14 +86,14 @@ We will use a number of tools to answer our research questions, namely:
 - Checking the story is answering our research questions.
 - Fine-tuning our plots and representations for our story.
 
-### Third week
+### Third week (15 Dec - 20 Dec)
 - Starting to transfer our story to the website.
 - Create a nice website design to fit into our story.
 - Make sure our visualizations fit correctly to our website and that the lecture is fluid.
 - Publish the website with Github pages.
 - Ensure the website works on all screen sizes.
 
-### Last 2 days
+### Last 2 days (21 and 22 Dec)
 - Final checks for formatting and spelling.
 
 
