@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2 - Uncovering Biases in Cinema</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: white;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+      }
+      #header-title {
+        background-color: #ffffff;
+        text-align: center;
+        padding-top: 2rem;
+        position: relative;
+        z-index: 10;
+      }
+      #header-title h1 {
+        font-size: 4rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+      #header-title .authors {
+        font-size: 1.25rem;
+        color: #666;
+      }
+      #main-content {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex-grow: 1;
+      }
+      .section {
+        margin-bottom: 2rem;
+        padding: 20px;
+      }
+      .nav-link {
+        display: inline-block;
+        margin-right: 15px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+      .nav-link:hover {
+        text-decoration: underline;
+      }
+      #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #globe {
+        transition: opacity 2s;
+        z-index: 2001;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading-overlay">
+      <img src="images/globe.gif" alt="Globe" id="globe" />
+    </div>
+
+    <div id="header-title">
+      <h1>Uncovering Biases in Cinema</h1>
+      <p class="authors">by David, Louis, Tanguy, Ivan and Stefan</p>
+    </div>
+
+    <div id="main-content">
+      <!-- Navigation -->
+      <nav class="text-center p-4">
+        <a href="#intro" class="nav-link">Introduction</a>
+        <a href="#section1" class="nav-link">Section 1</a>
+        <a href="#section2" class="nav-link">Section 2</a>
+      </nav>
+
+      <!-- Main content -->
+      <main>
+        <!-- Introduction Section -->
+        <section id="intro" class="section">
+          <h2 class="text-xl font-semibold mb-3">Introduction</h2>
+          <p>
+            Welcome to "Uncovering Biases in Cinema," where we embark on a
+            cinematic odyssey to investigate the subtle and overt biases that
+            shape our understanding of cities, countries, and their histories.
+            Our investigation peels back the layers of cinematic storytelling to
+            reveal how film can both reflect and distort the reality of our
+            world.
+          </p>
+          <br />
+        </section>
+
+        <section id="Our data" class="section">
+            <h2 class="text-xl font-semibold mb-3">Our data distribution</h2>
+          <p>
+            Before delving deep into the analysis we must first take a good look
+            at the data. The data we used is the CMU Movie Summary Corpus, which
+            is a collection of 42,306 movie summaries. We have expanded this
+            dataset by using LLMs to generate the locations depicted in the
+            story and the characters alignment but also nationality.
+          </p>
+        
+          <br/> <br/>
+          <p>
+            Our preprocessing only identified 21,000 movies with a country present and around 13,000 with a city present.
+            Even with the lower numbers we still have a lot of data to work with.
+          </p>
+          <img src="plots/number_of_movies.png" alt="Number of movies" />
+
+            <br/> <br/>
+
+            <p> 
+                Unsurprisingly, the distribution of movies in countries is not uniform. 
+                Most of the movies are from the United States, followed by the United Kingdom and India.
+                This will be important to keep in mind when analyzing the data and to account for the bias that might be present.
+            
+            <iframe src="plots/interactive_movie_locations.html" width="100%" height="500px"></iframe>
+            </p>
+        </section>
+
+        <!-- Stereotypes and Cityscapes Section -->
+        <section id="stereotypes" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            Stereotypes and Cityscapes in Cinema
+          </h2>
+          <p>
+            Unveiling the canvas of urban landscapes in film, we analyze the
+            interplay of genre and geography. Does cinema pigeonhole cities into
+            certain thematic roles? We dissect the patterns of representation
+            that have come to define the cinematic identities of places like
+            Paris and New York.
+          </p>
+        </section>
+
+        <!-- Historical Depictions Section -->
+        <section id="historical-depictions" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            Rewriting History Through the Camera Lens
+          </h2>
+          <p>
+            How does cinema choose to remember—or forget—historical events? This
+            segment explores the selective lens through which films narrate
+            history, comparing their retellings with the annals of actual
+            events.
+          </p>
+        </section>
+
+        <!-- Influence of Cultural Origins Section -->
+        <section id="cultural-origins" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            Cultural Origins and Their Impact on Film Narrative
+          </h2>
+          <p>
+            The origin of a film often colors its narrative. Here we delve into
+            how a movie's homeland influences its portrayal of friends and foes,
+            and what this reveals about national self-perception and otherness.
+          </p>
+        </section>
+
+        <!-- Temporal Contexts in Cinema Section -->
+        <section id="temporal-context" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            Temporal Contexts in Cinema
+          </h2>
+          <p>
+            In this section, we travel through time with cinema, examining how
+            different eras have distinct cinematic signatures. We ponder whether
+            the era in which a film is made influences its portrayal of certain
+            cities, countries, and events.
+          </p>
+        </section>
+
+        <!-- Portrayal of Antagonists Section -->
+        <section id="antagonist-portrayals" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            Characterizing Villains: A Cross-Cultural Examination
+          </h2>
+          <p>
+            Villains often carry the weight of cultural stereotypes. We
+            scrutinize how different cultures, from Eastern Europe to Hollywood,
+            craft their cinematic villains and what implications this has on
+            global perceptions.
+          </p>
+        </section>
+
+        <!-- Location Influence on Film Ratings Section -->
+        <section id="ratings-and-location" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            The Geographical Compass of Film Ratings
+          </h2>
+          <p>
+            Is there a correlation between the geographical setting of a film
+            and its critical acclaim or box office success? We analyze data to
+            determine if the backdrop of a story influences its reception and
+            ratings.
+          </p>
+        </section>
+
+        <!-- Accuracy of Representation Section -->
+        <section id="representation-accuracy" class="section">
+          <h2 class="text-xl font-semibold mb-3">
+            Mirroring Reality: The Accuracy of On-Screen Representation
+          </h2>
+          <p>
+            Our final analytical lens focuses on the depiction of human
+            characteristics such as names, occupations, and demographics. How
+            well does cinema mirror the rich tapestry of human diversity?
+          </p>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="section">
+          <h2 class="text-xl font-semibold mb-3">Conclusion</h2>
+          <p>
+            As our cinematic journey concludes, we reflect on the power of film
+            to influence, inform, and inspire. Our findings offer a mosaic of
+            insights into how cinema, across eras and origins, crafts our
+            collective consciousness. By understanding these biases, we become
+            more informed viewers, able to discern the line where art diverges
+            from reality, and appreciate the stories told within their
+            historical and cultural context.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      window.onload = function () {
+        setTimeout(function () {
+          document.getElementById("loading-overlay").style.display = "none";
+        }, 1);
+      };
+    </script>
+  </body>
+</html>
