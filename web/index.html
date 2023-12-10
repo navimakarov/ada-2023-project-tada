@@ -121,7 +121,7 @@
             Our preprocessing only identified 21,000 movies with a country present and around 13,000 with a city present.
             Even with the lower numbers we still have a lot of data to work with.
           </p>
-          <img src="plots/number_of_movies.png" alt="Number of movies" />
+          <iframe src="plots/number_of_movies.html" width="100%" height="500px"></iframe>
 
             <br/> <br/>
 
@@ -148,18 +148,49 @@
           </p>
         </section>
 
-        <!-- Historical Depictions Section -->
-        <section id="historical-depictions" class="section">
-          <h2 class="text-xl font-semibold mb-3">
-            Rewriting History Through the Camera Lens
-          </h2>
+        <!-- Embeddings section -->
+        <section id="embeddings" class="section">
+          <h2 class="text-xl font-semibold mb-3">Embeddings</h2>
           <p>
-            How does cinema choose to remember—or forget—historical events? This
-            segment explores the selective lens through which films narrate
-            history, comparing their retellings with the annals of actual
-            events.
-          </p>
+            In order to be able to easily extract meaning from movie summaries a common technique is to use embeddings.
+            Embeddings are a way to represent pieces of text as vectors, where meaning is encoded in the distance between vectors.
+            We used the OpenAI Ada2 model to generate embeddings for our movie summaries.
+
+            <img src="plots/embedding.png" alt="Embedding" width="100%" height="500px"></img>
+
+            For a global view of the embeddings we used T-SNE to reduce the dimensionality of the embeddings to 2 dimensions.
+            <iframe src="plots/tsne.html" width="100%" height="500px"></iframe>
+            By playing around with some of the search terms we can see that the embeddings do capture some meaning and some clusters can be identified.
+            For example, the cluster of movies about the war movies is clearly visible.
+            </p>
         </section>
+
+        <section id="case-study" class="section">
+            <h2 class="text-xl font-semibold mb-3">Case study and cluster analysis</h2>
+            <p>
+                In this section we will build on the previous section and look at a specific case study for the following countries:
+                <ul class="list-disc ml-10">
+                    <li>Germany</li>
+                    <li>Vietnam</li>
+                    <li>South Korea</li>
+                    <li>India</li>
+                    <li>North Korea</li>
+                    <li>France</li>
+                </ul>
+
+                We have selected these countries as they show a good variety of different clusters and are also interesting to look at.
+                <img src="plots/tsne_countries.png" alt="Case study" width="100%" height="500px"></img>
+                The clusters in the countries are distinct and strong.
+                We now must explore what these clusters actually mean.
+                
+                <br/> <br/>
+                Here we can see some clusters for a number of keywords.
+                <img src="plots/tsne_explained.png" alt="Case study" width="100%" height="500px"></img>
+                We can see how the clusters here can be easily mapped to our country clusters.
+            </p>
+
+        </section>
+
 
         <!-- Influence of Cultural Origins Section -->
         <section id="cultural-origins" class="section">
