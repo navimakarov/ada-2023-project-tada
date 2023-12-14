@@ -78,6 +78,10 @@
         font-size: 1.25rem;
         line-height: 1.5;
       }
+      #imdb_distribution {
+        display: flex;
+        justify-content: center;
+      }
     </style>
   </head>
   <body>
@@ -204,15 +208,26 @@
               In this section we analyze IMDb ratings of different cities. Our focus is on cities that feature in the plot of at least 50 movies. 
             </p>
               
-            <iframe src="plots/imdb_map.html" width="100%" height="500px"></iframe>
+            <p>
+              TODO: IMDb distribution
+            </p>
+            <div id="imdb_distribution">
+              <img src="images/imdb_distribution.png" alt="IMDb Ratings Distribution" >
+            </div>
 
-            <iframe src="plots/imdb_scaled.html" width="100%" height="500px"></iframe>
+            <br/> <br/>
 
             <p>
-              The plot shows that even though the average IMDb rating for movies set in various cities doesn't change much, the big difference in the number of ratings points to a kind of favoritism towards some cities over others in the film industry. 
-              One such example is Berlin vs Las Vegas. The lower IMDb rating could be attributed to the type of content typically associated with Las Vegas, such as gambling or crime, which may not appeal as broadly to the IMDb rating community. In contrast, Berlin has a higher IMDb rating of about 6.4.
-              This indicates that movies set in Berlin are rated more favorably, which may reflect a preference for the city's historical and cultural narratives often explored in cinema. Despite having fewer ratings compared to film industry hubs like Los Angeles or New York, the content associated with Berlin might resonate more positively with audiences, leading to higher ratings.
+              TODO: IMDb by city explanation
             </p>
+            <iframe src="plots/imdb_genres.html" width="100%" height="500px"></iframe>
+
+            <br/> <br/>
+
+            <p>
+              TODO: IMDb conclusion
+            </p>
+
           </section>
         
         <!-- Characters Section -->
