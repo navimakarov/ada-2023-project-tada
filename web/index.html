@@ -194,6 +194,29 @@
             <p>TODO: Add genre analysis conclusions</p>
               
             <br/> <br/>
+
+            <h1 class="text-xl font-semibold mb-3">IMDb ratings</h1>
+            <p>
+              In this sub-section we analyze IMDb ratings of different countries but also of continents.
+              We observe some significant differences in the ratings of movies depending on the plot location.
+              <br/> <br/>
+              <iframe src="plots/average_imdb_rating_per_continent.html" width="100%" height="500px"></iframe>
+              <br/> <br/>
+              We observed by performing an ANOVA test that there is a significant difference in the IMDb ratings of movies depending on the continent.
+              After this, we performed a Tukey test to see which continents have significantly different ratings.
+              <br/> <br/>
+              <iframe src="plots/significant_differences_per_continent.html" width="100%" height="500px"></iframe>
+            </p>
+            <p>
+              From the Tukey test we can observe a number of things:
+              <br/>
+              - South America seems to have a lower average rating than the other continents on multiple genres.
+              <br/>
+              - Europe has a significantly higher average rating in romance movies than the other continents.
+              <br/> <br/>
+              We can conclude that there are some significant differences in the IMDb ratings of movies depending on the continent and South America in particular is significantly lower than the other continents.
+            </p>
+
           </section>
 
         <!-- Cityscapes Section -->
@@ -238,6 +261,10 @@
               TODO: IMDb by city explanation
             </p>
             <iframe src="plots/imdb_genres.html" width="100%" height="500px"></iframe>
+
+            We can see that the distribution of IMDb ratings is not uniform across cities.
+            We have performed the Tukey test to see which cities have significantly different ratings.
+            <iframe src="plots/significant_differences_per_city.html" width="100%" height="500px"></iframe>
 
             <br/> <br/>
 
