@@ -8,22 +8,30 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      body {
-        background-color: white;
-        font-family: "Arial", sans-serif;
-        margin: 0;
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Merriweather', serif;
       }
+
+      body, p, a, li {
+        font-family: 'Lato', sans-serif;
+      }
+
       #header-title {
-        background-color: #ffffff;
+        background-color: #f8f9fa;
         text-align: center;
         padding-top: 2rem;
         position: relative;
         z-index: 10;
+      }
+      h2 {
+        background-color: #f8f9fa;
+        text-align: center;
+        padding-top: 2rem;
+        position: relative;
+        z-index: 10;
+        padding-bottom: 2rem;
       }
       #header-title h1 {
         font-size: 4rem;
@@ -111,29 +119,43 @@
         <section id="intro" class="section">
           <h2 class="text-3xl font-semibold mb-3">Introduction</h2>
           <p>
-            Welcome to "How does cinema view the world?", a data visualization
-            journey through the cinematic world. In this project we will explore
-            how cinema portrays the world and how this has changed over time.
+            <strong>Welcome to "How does cinema view the world?"</strong>, a data visualization journey through the cinematic world. In this project, we explore how cinema portrays the world and its evolution over time.
             <br />
             <br />
-            We aim to uncover the biases with respect to the portrayal of
-            countries, cities, and characters in movies. We will also look at
-            how these biases have changed over time and how they differ between
-            countries.
-
+            Our goal is to <strong>uncover biases</strong> in the portrayal of countries, cities, and characters in movies. We'll examine how these biases have evolved and vary across different nations.
+            <br />
+            <br />
+            Stereotypes about different countries and cities are well-known. For instance, the perception that the French are romantic and Paris is the city of love. Our analysis will delve into how movies reflect these stereotypes and <strong>assess their accuracy</strong> from a cinematic perspective.
           </p>
           <br />
         </section>
 
         <section id="large" class="section">
-          <h1 class="text-3xl font-semibold mb-3">Large scale analysis</h1>
+          <h2 class="text-3xl font-semibold mb-3">Large scale analysis</h2>
           <p>
-            Before delving deep into the analysis we must first take a good look
-            at the data. The data we used is the CMU Movie Summary Corpus, which
-            is a collection of 42,306 movie summaries. We have expanded this
-            dataset by using LLMs(OpenAI GPT-3.5-Turbo model) to generate the locations depicted in the
-            story and the characters alignment but also nationality.
-          </p>
+            <strong>Understanding Our Data:</strong> Before we dive into the depths of our analysis, it's crucial to first examine our dataset closely. We utilized the <em>CMU Movie Summary Corpus</em>, a comprehensive collection of 42,306 movie summaries. To enrich this dataset, we employed <a class="text-blue-500" href="https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates" target="_blank">LLMs (OpenAI GPT-3.5-Turbo model)</a> for generating the depicted locations, characters' alignments, and nationalities within the stories.
+        </p>
+        <br/>
+        <br/>
+        <p>
+            <strong>Sample Data Representation:</strong> Here's an example of how GPT-3.5 processes and structures data:
+            <pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+    {
+       "cities": [
+          "Mexico City"
+       ],
+       "countries": [
+          "Mexico"
+       ],
+       "characters": {
+          "Keaton": {
+             "nationality": "USA",
+             "alignment": "good"
+          }
+       }
+    }
+            </pre>
+        </p>
         
           <br/> <br/>
           <p>
@@ -154,68 +176,74 @@
 
             <br/> <br/>
 
-            <h1 class="text-xl font-semibold mb-3">Going into vector space</h1>
-            <p>
-                In order to be able to easily extract meaning from movie summaries a common technique is to use embeddings.
-                Embeddings are a way to represent pieces of text as vectors, where meaning is encoded in the distance between vectors.
-                We used the OpenAI Ada2 model to generate embeddings for our movie summaries.
-                <br/> <br/>
-                <img src="plots/embedding.png" alt="Embedding" width="100%" height="500px"></img>
-                We have done this for the movie summaries in order to be able to quantify the similarity between movies
-                and to extract clusters of movies. We can then use these clusters to see how the movies are distributed across countries
-                and notice shifts in the distribution over time and similarities between countries.
-                <br/> <br/>
-                For a global view of the embeddings we used T-SNE to reduce the dimensionality of the embeddings to 2 dimensions which allows us to easily visualize the embeddings.
-                <iframe src="plots/tsne.html" width="100%" height="500px"></iframe>
-                By playing around with the search terms we can see that the embeddings do capture some meaning and some clusters can be identified.
-                <br/> <br/>
-                We are even able to observe some clusters for specific movie countries.
-                <iframe src="plots/tsne_countries.html" width="100%" height="500px"></iframe>
-                Some particular countries are interesting to look at.
-                For example, for Germany we can see a cluster that is very close to the cluster of war movies from before and
-                France has a close cluster to movies about Love but also a cluster of movies about war.
-                <br/> <br/>
-                We can also observe that countries such as the United States and the United Kingdom have no clear clusters
-                and are more spread out across the plot showing that they are portrayed in many different ways as opposed to other countries 
-                such as Vietnam where most movies are concentrated in a single cluster.
+            <h3 class="text-xl font-semibold mb-3">Diving into Vector Space</h3>
+<p>
+    To effectively derive meaning from movie summaries, we utilize <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/Word_embedding" target="_blank">embeddings</a></strong>, a technique to represent text as vectors. In this method, the meaning is encapsulated in the spatial distances between vectors. For our analysis, the <strong><a class="text-blue-500" href="https://openai.com/blog/new-and-improved-embedding-model" target="_blank">OpenAI Ada2 model</a></strong> was employed to create these embeddings.
+    <br/><br/>
+    <img src="plots/embedding.png" alt="Embedding" width="100%" height="500px">
+    This approach allows us to quantify similarities between movies and to identify clusters. These clusters help us understand how movies are distributed across different countries and observe changes and patterns over time.
+    <br/><br/>
+    To provide a comprehensive view, we employed <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding" target="_blank">T-SNE</a></strong> for dimensionality reduction, making it easier to visualize these embeddings in two dimensions.
+    <iframe src="plots/tsne.html" width="100%" height="500px"></iframe>
+    Through this visualization, we can discern meaningful clusters and their relevance to specific movie themes.
+    <br/><br/>
+    For instance, an analysis of German films reveals a cluster closely associated with war themes, whereas French cinema shows a significant cluster of love-themed movies, alongside war themes.
+    <iframe src="plots/tsne_countries.html" width="100%" height="500px"></iframe>
+    Interestingly, countries like the United States and the United Kingdom display a diverse range of themes, as opposed to countries like Vietnam, where most movies cluster around a singular theme. This could be due to the fact that the movie industry in the United States and the United Kingdom is more developed and has a larger variety of movies and are less influenced by the political and social events of the time.
+</p>
 
-              </p>
             
             <br/> <br/>
-            <h1 class="text-xl font-semibold mb-3">Genre analysis</h1>
+            <h3 class="text-xl font-semibold mb-3">Genre Analysis Across Countries</h3>
 
-            <p>
-              As part of the CMU Movie Summary Corpus we have all the genres for each movie.
-              We can use this to see how the genres are distributed across countries.
-            </p>
+<p>
+    The <em>CMU Movie Summary Corpus</em> provides us with genres for each movie, allowing us to analyze the distribution of genres across different countries.
+</p>
 
-            <iframe src="plots/country_genres.html" width="100%" height="500px"></iframe>
+<iframe src="plots/country_genres.html" width="100%" height="500px"></iframe>
 
-            <p>TODO: Add genre analysis conclusions</p>
+<p>
+    Our analysis, backed by a <strong>Chi-Square test</strong>, reveals a significant disparity in movie genres based on the country. With a p-value close to 0, we confirm that movie genres are not uniformly distributed worldwide. This indicates a higher likelihood of certain genres being associated with specific countries.
+</p>
+<br/>
+<br/>
+
+<p>
+    Some notable examples confirmed include:
+</p>
+
+<ul style="font-size: 1.25rem;">
+    <li><strong>France:</strong> Predominantly associated with romance movies.</li>
+    <li><strong>Afghanistan, Vietnam, and Germany:</strong> More inclined towards war-themed movies.</li>
+    <li><strong>India:</strong> Known for Romance and Musical movies, along with its signature Bollywood genre.</li>
+    <li><strong>Romania:</strong> Known for its Horror movies. Most notably, <em>Dracula</em> related movies.</li>
+</ul>
+
               
             <br/> <br/>
 
-            <h1 class="text-xl font-semibold mb-3">IMDb ratings</h1>
-            <p>
-              In this sub-section we analyze IMDb ratings of different countries but also of continents.
-              We observe some significant differences in the ratings of movies depending on the plot location.
-              <br/> <br/>
-              <iframe src="plots/average_imdb_rating_per_continent.html" width="100%" height="500px"></iframe>
-              <br/> <br/>
-              We observed by performing an ANOVA test that there is a significant difference in the IMDb ratings of movies depending on the continent.
-              After this, we performed a Tukey test to see which continents have significantly different ratings.
-              <br/> <br/>
-              <iframe src="plots/significant_differences_per_continent.html" width="100%" height="500px"></iframe>
-            </p>
-            <p>
-              From the Tukey test we can observe a number of things:
-              <br/>
-              - South America seems to have a lower average rating than the other continents on multiple genres.
-              <br/>
-              - Europe has a significantly higher average rating in romance movies than the other continents.
-              <br/> <br/>
-              We can conclude that there are some significant differences in the IMDb ratings of movies depending on the continent and South America in particular is significantly lower than the other continents.
-            </p>
+            <h3 class="text-xl font-semibold mb-3">IMDb Ratings Analysis</h3>
+
+<p>
+    This subsection delves into the analysis of IMDb ratings, focusing on variations across different countries and continents. Our findings indicate notable differences in movie ratings based on the location depicted in the plot.
+</p>
+
+<iframe src="plots/average_imdb_rating_per_continent.html" width="100%" height="500px"></iframe>
+
+<p>
+    A comprehensive <strong>ANOVA test</strong> revealed significant variances in the IMDb ratings based on the continent. To further explore these differences, we conducted a <strong>Tukey test</strong> to pinpoint continents with notably distinct ratings.
+</p>
+
+<iframe src="plots/significant_differences_per_continent.html" width="100%" height="500px"></iframe>
+
+<p>
+    Key insights from the Tukey test include:
+</p>
+<ul style="font-size: 1.25rem;">
+    <li><strong>South America:</strong> Generally exhibits lower average ratings across multiple genres compared to other continents.</li>
+    <li><strong>Europe:</strong> Stands out with significantly higher average ratings in romance movies.</li>
+</ul>
+
 
           </section>
 
@@ -231,7 +259,7 @@
 
           <br/> <br/>
 
-          <h1 class="text-xl font-semibold mb-3">Genre analysis</h1>
+          <h3 class="text-xl font-semibold mb-3">Genre analysis</h3>
 
             <p>
               As part of the CMU Movie Summary Corpus we have all the genres for each movie.
@@ -243,7 +271,7 @@
             <br/> <br/>
 
 
-          <h1 class="text-xl font-semibold mb-3">IMDb ratings</h1>
+          <h3 class="text-xl font-semibold mb-3">IMDb ratings</h3>
             <p>
               In this section we analyze IMDb ratings of different cities. Our focus is on cities that feature in the plot of at least 50 movies. 
             </p>
@@ -259,12 +287,12 @@
 
             <p>
               TODO: IMDb by city explanation
-            </p>
             <iframe src="plots/imdb_genres.html" width="100%" height="500px"></iframe>
 
             We can see that the distribution of IMDb ratings is not uniform across cities.
             We have performed the Tukey test to see which cities have significantly different ratings.
             <iframe src="plots/significant_differences_per_city.html" width="100%" height="500px"></iframe>
+            </p>
 
             <br/> <br/>
 
