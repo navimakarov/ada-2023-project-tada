@@ -346,6 +346,31 @@
             events take place during the 20th century (WW2, the Cold War etc.), which can
             explain the division and formation of new clusters.
           </p>
+          <br/> <br/>
+          
+            <h3 class="text-xl font-semibold mb-3">Cluster time view by country</h3>
+            <p>
+            Looking at each country in particular we can observe some interesting patterns.
+            </p>
+            <div id="plot-container" class="container mx-auto my-4">
+              <div class="flex justify-center">
+                <label for="country-selector" class="mr-2">Select a country:</label>
+                  <select id="country-selector" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  </select>
+              </div>
+              <iframe id="plot-frame" src="" width="100%" height="600px"></iframe>
+              <p>
+              We can see that the embedding space for each country is different across the time intervals.
+              We can observe that the war cluster is present in the 1940-1960 interval for all countries but 
+              some countries have a more pronounced war cluster than others. For example, Germany has a very
+              pronounced war cluster, while the United States has a more diverse embedding space.
+
+              The German cluster does not seem to go away in the subsequent time intervals, while for example
+              France losses it quite quickly.
+            </p>
+          </div>
+          <br/> <br/>
+          <h3 class="text-xl font-semibold mb-3">Case study: France</h3>
           <p>
             A country which is very interesting to analyze, due to its major changes
             in movie genres is France.
@@ -385,6 +410,28 @@
           document.getElementById("loading-overlay").style.display = "none";
         }, 1);
       };
+      document.addEventListener('DOMContentLoaded', function() {
+    const countries = ['Germany', 'United Kingdom', 'United States', 'India', 'France'];
+    const countrySelector = document.getElementById('country-selector');
+    const plotFrame = document.getElementById('plot-frame');
+
+    countries.forEach(country => {
+        let option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countrySelector.appendChild(option);
+    });
+
+    countrySelector.addEventListener('change', function() {
+        const selectedCountry = countrySelector.value;
+        plotFrame.src = `plots/tsne_${selectedCountry}_movies_over_time.html`;
+    });
+
+    // Load the first country by default
+    countrySelector.value = countries[0];
+    plotFrame.src = `plots/tsne_${countries[0]}_movies_over_time.html`;
+});
+
     </script>
   </body>
 </html>
