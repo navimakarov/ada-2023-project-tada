@@ -8,6 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
       h1, h2, h3, h4, h5, h6 {
@@ -89,6 +90,28 @@
       #imdb_distribution {
         display: flex;
         justify-content: center;
+      }
+      .splide__slide {
+        display: flex;
+        justify-content: center;
+      }
+
+      #slider {
+        display: flex;
+        justify-content: center;
+      }
+
+      .splide__slide img {
+        width: 100%;
+        height: auto;
+      }
+
+      .splide__pagination .splide__pagination__page {
+        background: lightskyblue; /* This sets the unselected dots to blue */
+      }
+        
+      .splide__pagination .splide__pagination__page.is-active {
+          background: darkblue; /* This sets the color of the active dot */
       }
     </style>
   </head>
@@ -362,6 +385,33 @@
             explain the division and formation of new clusters.
           </p>
           <br/> <br/>
+
+            <h3 class="text-xl font-semibold mb-3">Genre evolution</h3>
+            <div id="slider">
+              <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    <li class="splide__slide">
+                      <img src="plots/france_genres_evolution.png" alt="">
+                    </li>
+                    <li class="splide__slide">
+                      <img src="plots/germany_genres_evolution.png" alt="">
+                    </li>
+                          <li class="splide__slide">
+                      <img src="plots/hong_kong_genres_evolution.png" alt="">
+                    </li>
+                    <li class="splide__slide">
+                      <img src="plots/uk_genres_evolution.png" alt="">
+                    </li>
+                          <li class="splide__slide">
+                      <img src="plots/india_genres_evolution.png" alt="">
+                    </li>
+                  </ul>
+                </div>
+              </section>
+              </div>
+
+            <br/> <br/>
           
             <h3 class="text-xl font-semibold mb-3">Cluster time view by country</h3>
             <p>
@@ -430,7 +480,19 @@
       </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new Splide('#image-carousel', {
+          type       : 'loop',
+          perPage    : 1,
+          perMove    : 1,
+          gap        : '1rem',
+          pagination : true,
+          arrows     : true,
+        }).mount();
+     });
+
       window.onload = function () {
         setTimeout(function () {
           document.getElementById("loading-overlay").style.display = "none";
