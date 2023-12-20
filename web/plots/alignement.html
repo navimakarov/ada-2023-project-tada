@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Map Visualization</title>
+</head>
+<body>
+    <select id="Number of characters" onchange="updateMap()">
+        <option value="5">k = 5</option>
+        <option value="10">k = 10</option>
+        <option value="25">k = 25</option>
+        <option value="50">k = 50</option>
+        <option value="150">k = 150</option>
+        <option value="300">k = 300</option>
+    </select>
+
+    <img id="map-image" src="web/plots/map_for_k_300.png" width="100%" />
+
+    <script>
+        function updateMap() {
+            var kValue = document.getElementById('k-value-dropdown').value;
+            var image = document.getElementById('map-image');
+            image.src = 'web/plots/map_for_k_' + kValue + '.png';
+        }
+    </script>
+</body>
+</html>
