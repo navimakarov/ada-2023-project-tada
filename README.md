@@ -1,21 +1,17 @@
-# Project 2
+# How does cinema view the world?
 
 ## Abstract
 Our project focuses on uncovering biases in cinema, analyzing how films depict various cities and countries, often diverging from reality. We aim to critically examine these cinematic depictions, understanding how different eras and origins influence portrayals. This involves exploring the romanticization of cities like Paris versus the conflict-ridden portrayal of places like Afghanistan, assessing how these differ from real-world scenarios.
 
-Key to our analysis are case studies, such as the depiction of American and Soviet characters during the Cold War, to illuminate how political climates shape film narratives. We'll also explore how these portrayals impact audience ratings and film success, probing the relationship between cinematic representation and audience perception.
-
 Our goal is to provide insights into cinema's role in shaping global perspectives, highlighting how film can reflect and distort cultural narratives and public opinion.
 
-
+[Data Story](https://epfl-ada.github.io/ada-2023-project-tada/)
 
 ## Research Questions
 
 - Are there stereotypes associated with cities?
     - Are particular genres (ex: action, thriller etc) associated with cities?
     - Are certain ideas and concepts (ex: love, drugs etc) overrepresented/underrepresented in cities?
-
-- How are historical events depicted in the cinema?
 
 - Does the country origin of a movie make a difference?
     - Are different countries depicted differently in movies with similar themes, and is this influenced by the origin country of the movie?
@@ -26,6 +22,8 @@ Our goal is to provide insights into cinema's role in shaping global perspective
     - How do the US and Russia view antagonists?
 
 - Are the ratings influenced by the location?
+
+- Are stereotypes and movies influenced deeply by time?
 
 - How accurately are human features such as names or gender ratio represented in movies?
     - Are there any relations to the country or city where the plot takes place? 
@@ -40,11 +38,6 @@ We will be able to easily handle the dataset size as it is not too large and we 
 
 [IMDb ratings](https://developer.imdb.com/non-commercial-datasets/) \\
 [Library](https://pypi.org/project/IMDbPY/)
-
-We will also plan on using the movie database to get more nuanced details about actors and characters they play. We have not yet collected this data but we will use their API to dynamically query it easily.
-
-[The Movie Database website](https://www.themoviedb.org/?language=fr) \\
-[Library](https://pypi.org/project/tmdbsimple/)
 
 ## Methods
 
