@@ -203,7 +203,7 @@
 <p>
     To effectively derive meaning from movie summaries, we utilize <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/Word_embedding" target="_blank">embeddings</a></strong>, a technique to represent text as vectors. In this method, the meaning is encapsulated in the spatial distances between vectors. For our analysis, the <strong><a class="text-blue-500" href="https://openai.com/blog/new-and-improved-embedding-model" target="_blank">OpenAI Ada2 model</a></strong> was employed to create these embeddings.
     <br/><br/>
-    <img src="plots/embedding.png" alt="Embedding" width="100%" height="500px">
+    <img src="plots/embedding.png" alt="Embedding" width="100%" height="200px">
     This approach allows us to quantify similarities between movies and to identify clusters. These clusters help us understand how movies are distributed across different countries and observe changes and patterns over time.
     <br/><br/>
     To provide a comprehensive view, we employed <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding" target="_blank">T-SNE</a></strong> for dimensionality reduction, making it easier to visualize these embeddings in two dimensions.
@@ -464,6 +464,11 @@
             As time progresses from World War II, its significance diminishes, and movies return to 
             the roots.
           </p>
+          <br/> <br/>
+          <div id="time_movies_france">
+            <img src="plots/war-love-plotting.png" width="100%" height="500px">
+          </div>
+          <br/> <br/>
         </section>
 
         <!-- Conclusion Section -->

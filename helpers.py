@@ -386,3 +386,22 @@ def get_color(ratio):
         return 'orange'
     else:
         return 'red'
+    
+
+
+def get_movie_names_from_ids(movie_ids, movie_metadata):
+    """
+    Get the movie names from the movie ids in order
+    """
+    movie_names = movie_metadata.loc[movie_metadata["Wikipedia movie ID"].isin(movie_ids), ['Wikipedia movie ID',"Movie name"]].values
+    movie_names_dict = {movie_id: movie_name for movie_id, movie_name in movie_names}
+
+    movie_names = []
+    for movie_id in movie_ids:
+        if movie_id not in movie_names_dict:
+            # Sometimes plots are missing metadata, so we add "Unknown" as a placeholder
+            movie_names.append("Unknown")
+        else:
+            movie_names.append(movie_names_dict[movie_id])
+    
+    return movie_names
