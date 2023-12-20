@@ -393,14 +393,28 @@
           <br/><br/>
 
           <p>
-            The resulting visualization displays a world map where each country's color
-            intensity reflects the proportion of good characters in the analyzed data. 
-            Countries in lighter blue have a higher proportion of good characters, 
-            while those in darker blue have a lower proportion. Countries highlighted 
-            in green, such as South Sudan, Ivory Coast, Tanzania, Central African Republic, 
-            Gabon, and Togo, represent areas with insufficient data for the analysis. 
-            This geographical representation allows for a quick visual assessment of the
-            distribution of character alignments around the world based on the dataset.
+          The graphs above provide insights into the alignment of characters in movies, 
+          categorized by varying the threshold represnting the minimum of characters per country. 
+          Indeed, we've defined a minimum number of characters that a country must have for its data 
+          to be included in our analysis. This threshold is essential to ensure that the 
+          data for each country is sufficiently representative. It wouldn't be fair or 
+          accurate to draw conclusions from a country's data if it's based on, say, 
+          just one evil character.
+
+          A threshold of 10 characters, for instance, strikes a balance between having a representative 
+          sample and including a diverse range of countries in the analysis. This number is substantial 
+          enough to mitigate the risk of skewing the results with outliers (such as a single character 
+          portraying a negative stereotype), yet not so high that it excludes countries with lesser 
+          representation in global cinema. This way, we can include countries that have a moderate presence 
+          in films while ensuring that their portrayal isn't dominated by a few characters.
+
+          Countries that don't meet this minimum threshold are coloured in grey on the 
+          world map. This coloring serves as a visual indicator of areas with insufficient data, 
+          allowing us to focus our analysis on countries with a more robust representation of 
+          characters. Countries in lighter blue have a higher proportion of 'good' characters, 
+          while those in darker blue have a lower proportion. This distinction helps us quickly 
+          assess the global distribution of character alignments and understand potential biases 
+          in character representation based on nationality in the film industry. 
           </p>
 
           <br/> <br/>
