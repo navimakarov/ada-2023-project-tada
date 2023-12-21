@@ -434,12 +434,33 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             <br/> <br/>
 
             <p>
-              The Gaussian distribution of IMDb ratings suggests that there is no significant difference in the average ratings of movies between countries, as the ratings tend to follow a normal distribution centered around a similar mean.s
+              The Gaussian distribution of IMDb ratings suggests that there is no significant difference in the average ratings of movies between countries, as the ratings tend to follow a normal distribution centered around a similar mean.
+              Given this, we zoom in to visualize IMDb rating differences in four informative genres: <em>Romance, Martial Art, Bollywood, Horror</em>.
             </p>
+
             <iframe src="plots/imdb_genres.html" width="100%" height="500px"></iframe>
 
+            <p>
+              Key Observations:
+           </p>
+           <p>
+            - <u>Romance</u>: Paris performs really well in this genre. Being similar to London by the number of romance movies and votes, it gets 6.66 against 6.38 in London.
+           </p>
+           <p>
+            - <u>Horror</u>: Movies about Transylvania are ranking the highest, given a fame of the region.
+           </p>
+           <p>
+            - <u>Martial Arts</u>: Hong Kong is a clear winner with a biggest amount of Martial Arts movies and a rating of 6.34
+           </p>
+           <p>
+            - <u>Bollywood</u>: This genre is dominated by Indian cities, with an exception of London, which, performs the words out of major cities, and New York, which is almost on par with Delhi and Mumbai. Very high rating in Calcutta might be explained by a small number of movies associated with it (17).
+           </p>
+
+           <br>
+            <p>
             We can see that the distribution of IMDb ratings is not uniform across cities.
             We have performed the Tukey test to see which cities have significantly different ratings.
+            </p>
             <iframe src="plots/significant_differences_per_city.html" width="100%" height="500px"></iframe>
             </p>
 
