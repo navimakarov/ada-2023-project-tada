@@ -542,6 +542,22 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
           <br/><br/>
 
+          <div id="slider-container" style="width: 80%; margin: auto;">
+            <input type="range" id="threshold-slider" min="1" max="800" value="10" class="slider" oninput="updateMap(this.value)">
+            <p>Value: <span id="slider-value">10</span></p>
+          </div>
+          
+          <div id="image-container">
+            <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%;">
+          </div>
+          
+          <script>
+            function updateMap(value) {
+              document.getElementById("slider-value").textContent = value;
+              document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
+            }
+          </script>
+
           <p>
            The countries in lighter blue have a higher proportion of 'good' characters, 
           while those in darker blue have a lower proportion. This distinction helps us quickly 
