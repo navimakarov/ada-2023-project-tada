@@ -157,37 +157,82 @@
           <br />
         </section>
 
-        <section id="large" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Large scale analysis</h2>
+        <section id="data" class="section">
+          <h2 class="text-3xl font-semibold mb-3">Understanding our data</h2>
           <p>
-            <strong>Understanding Our Data:</strong> Before we dive into the depths of our analysis, it's crucial to first examine our dataset closely. We utilized the <em>CMU Movie Summary Corpus</em>, a comprehensive collection of 42,306 movie summaries. To enrich this dataset, we employed <a class="text-blue-500" href="https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates" target="_blank">LLMs (OpenAI GPT-3.5-Turbo model)</a> for generating the depicted locations, characters' alignments, and nationalities within the stories.
+            Before we dive into the depths of our analysis, it's crucial to first examine our dataset closely. We utilized the <em>CMU Movie Summary Corpus</em> dataset, a comprehensive collection of 42,306 movie summaries. To enrich this dataset, we employed <a class="text-blue-500" href="https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates" target="_blank">LLMs (OpenAI GPT-3.5-Turbo model)</a> for generating the depicted locations, characters' alignments, and nationalities within the stories.
+            A large part of our analysis is based on the information extracted using the LLMs, data that on its own is not always correct. However, we believe that the data is accurate enough to provide us with meaningful insights and to draw conclusions. We also employed a data cleaning process to remove any problems the data had.
         </p>
         <br/>
         <br/>
         <p>
-            <strong>Sample Data Representation:</strong> Here's an example of how GPT-3.5 processes and structures data:
-            <pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
-    {
-       "cities": [
-          "Mexico City"
-       ],
-       "countries": [
-          "Mexico"
-       ],
-       "characters": {
-          "Keaton": {
-             "nationality": "USA",
-             "alignment": "good"
-          }
-       }
-    }
-            </pre>
+            <strong>Sample Data Representation:</strong> We have asked GPT-3.5 to give us a json formatted string detailing the cities, countries and characters in the plot. The model is prompted using the title of the movie and the summary. 
+            Here's an example of an output from the model:
+            <br/> <br/>
+            <div class="flex h-screen">
+              <!-- Left Side: Movie Summary -->
+              <div class="w-1/2 overflow-y-auto p-4">
+                  <h2 class="text-xl font-bold mb-4">Movie Summary</h2>
+                  <p class="text-justify text-sm">
+                      The film begins with <span style="color: red;"><b>Moriarty</b></span> and <span style="color: blue;"><b>Holmes</b></span> verbally sparring on the steps outside the Old Bailey where <span style="color: red;"><b>Moriarty</b></span> has just been acquitted on a charge of murder due to lack of evidence. <span style="color: blue;"><b>Holmes</b></span> remarks, "You've a magnificent brain, <span style="color: red;">Moriarty</span>. I admire it. I admire it so much I'd like to present it, pickled in alcohol, to the <span style="color: darkblue;">London</span> Medical Society". "It would make an impressive exhibit", replies <span style="color: red;">Moriarty</span>. Later <span style="color: blue;">Holmes</span> and <span style="color: green;"><b>Watson</b></span> are visited at 221B Baker Street by <span style="color: purple;"><b>Ann Brandon</b></span>. She tells him that her brother <span style="color: orange;"><b>Lloyd Brandon</b></span> has received a strange note - a drawing of a man with an albatross hanging around his neck - identical to one received by her father just before his brutal murder ten years before. <span style="color: blue;">Holmes</span> deduces that the note is a warning and rushes to find <span style="color: orange;">Lloyd Brandon</span>. However, he is too late, as <span style="color: orange;">Lloyd</span> has been murdered by being strangled and having his skull crushed. <span style="color: blue;">Holmes</span> investigates and attends a garden party, disguised as a music-hall entertainer, where he correctly believes an attempt will be made on <span style="color: purple;">Ann</span>'s life. Hearing her cries from a nearby park he captures her assailant, who turns out to be <span style="color: brown;"><b>Gabriel Mateo</b></span>, out for revenge on the Brandons for the murder of his father by <span style="color: purple;">Ann</span>'s father in a dispute over ownership of their <span style="color: darkgreen;">South American</span> mine. His murder weapon was a bolas. <span style="color: brown;">Mateo</span> also reveals that it was <span style="color: red;">Moriarty</span> who urged him to seek revenge. <span style="color: blue;">Holmes</span> realises that <span style="color: red;">Moriarty</span> is using the case as a distraction from his real crime, a crime that will stir the British Empire - an attempt to steal the Crown Jewels. <span style="color: blue;">Holmes</span> rushes to the Tower of <span style="color: darkblue;">London</span> to prevent the crime, and during a struggle <span style="color: red;">Moriarty</span> falls, presumably to his death. In the end, <span style="color: purple;">Ann</span> is married and <span style="color: blue;">Holmes</span> tries to shoo a fly by playing his violin, only to have <span style="color: green;">Watson</span> swat it with his newspaper remarking, "Elementary, my dear <span style="color: blue;">Holmes</span>, elementary."
+                  </p>
+              </div>
+          
+              <!-- Right Side: ChatGPT Output -->
+              <div class="w-1/2 overflow-y-auto p-4 bg-gray-100">
+                  <h2 class="text-xl font-bold mb-4">ChatGPT Output</h2>
+                  <pre class="whitespace-pre-wrap text-sm">
+{
+  "cities": [
+    <span style="color: darkblue;">"London"</span>
+  ],
+  "countries": [
+    <span style="color: darkgreen;">"UK"</span>
+  ],
+  "characters": {
+    <span style="color: blue;">"Sherlock Holmes": {
+      "nationality": "UK",
+      "alignment": "good"
+    }</span>,
+    <span style="color: green;">"Dr. Watson": {
+      "nationality": "UK",
+      "alignment": "good"
+    }</span>,
+    <span style="color: red;">"Moriarty": {
+      "nationality": "UK",
+      "alignment": "evil"
+    }</span>,
+    <span style="color: purple;">"Ann Brandon": {
+      "nationality": "UK",
+      "alignment": "good"
+    }</span>,
+    <span style="color: orange;">"Lloyd Brandon": {
+      "nationality": "UK",
+      "alignment": "good"
+    }</span>,
+    <span style="color: brown;">"Gabriel Mateo": {
+      "nationality": "South American",
+      "alignment": "neutral"
+    }</span>
+  }
+}
+                  </pre>
+              </div>
+          </div>
+
+          Using these outputs we have augmented our dataset and we can now start our analysis.
         </p>
-        
+        </section>
+
+        <section id="large" class="section">
+          <h2 class="text-3xl font-semibold mb-3">Large scale analysis</h2>
+          <p>
+            We will now show our first analysis section. We will start with a top-down approach, looking at the entire cinematic world, analyzing the countries and continents. We will delve into cities and characters in the subsequent sections.
+          </p>
           <br/> <br/>
           <p>
-            Our preprocessing only identified 21,000 movies with a country present and around 13,000 with a city present.
-            Even with the lower numbers we still have a lot of data to work with.
+            After our preprocessing pipeline we have identified 21,000 movies with a country present and around 13,000 with a city present.
+            Even with the lower numbers we still have a lot of data to work with and we can extract meaningful insights.
           </p>
           <iframe src="plots/number_of_movies.html" width="100%" height="500px"></iframe>
 
@@ -197,24 +242,26 @@
                 Unsurprisingly, the distribution of movies in countries is not uniform. 
                 Most of the movies are from the United States, followed by the United Kingdom and India.
                 This will be important to keep in mind when analyzing the data and to account for the bias that might be present.
+                Below we can see the distribution of movies across countries.
             
             <iframe src="plots/interactive_movie_locations.html" width="100%" height="500px"></iframe>
+            It is of importance to note that if a country has more movies in general it will be able to impose its own biases on the data.
             </p>
 
             <br/> <br/>
 
             <h3 class="text-xl font-semibold mb-3">Diving into Vector Space</h3>
 <p>
-    To effectively derive meaning from movie summaries, we utilize <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/Word_embedding" target="_blank">embeddings</a></strong>, a technique to represent text as vectors. In this method, the meaning is encapsulated in the spatial distances between vectors. For our analysis, the <strong><a class="text-blue-500" href="https://openai.com/blog/new-and-improved-embedding-model" target="_blank">OpenAI Ada2 model</a></strong> was employed to create these embeddings.
+    With our analysis we wanted to uncover hard to find patterns that might not be easily representable in terms of genres as such we have decided to extract meaning from summaries in a less discrete fashion. We utilized <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/Word_embedding" target="_blank">embeddings</a></strong>, a technique to represent text as vectors. In this method, the meaning is encapsulated in the spatial distances between vectors. For our analysis, the <strong><a class="text-blue-500" href="https://openai.com/blog/new-and-improved-embedding-model" target="_blank">OpenAI Ada2 model</a></strong> was employed to create these embeddings.
     <br/><br/>
     <img src="plots/embedding.png" alt="Embedding" width="100%" height="200px">
     This approach allows us to quantify similarities between movies and to identify clusters. These clusters help us understand how movies are distributed across different countries and observe changes and patterns over time.
     <br/><br/>
-    To provide a comprehensive view, we employed <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding" target="_blank">T-SNE</a></strong> for dimensionality reduction, making it easier to visualize these embeddings in two dimensions.
+    To provide a comprehensive view, we employed <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding" target="_blank">T-SNE</a></strong> for dimensionality reduction, making it easier to visualize these embeddings in two dimensions. Below, we can see the embedding space for all movies, with each point representing a movie. The colors represent the cosine similarity to the search term selected.
     <iframe src="plots/tsne.html" width="100%" height="500px"></iframe>
-    Through this visualization, we can discern meaningful clusters and their relevance to specific movie themes.
+    Through this visualization, we can discern meaningful clusters for most of the different keywords. For example, the <em>Bollywood</em> cluster is clearly visible, as is the <em>War</em> cluster. 
     <br/><br/>
-    For instance, an analysis of German films reveals a cluster closely associated with war themes, whereas French cinema shows a significant cluster of love-themed movies, alongside war themes.
+    We have also analyzed the clusters formed by countries in the embedding space. For instance, an analysis of German films reveals a cluster closely associated with war themes, whereas French cinema shows a significant cluster of love-themed movies, alongside war themes. The plot below allows switching between different countries and observing the clusters formed by movies from that country.
     <iframe src="plots/tsne_countries.html" width="100%" height="500px"></iframe>
     Interestingly, countries like the United States and the United Kingdom display a diverse range of themes, as opposed to countries like Vietnam, where most movies cluster around a singular theme. This could be due to the fact that the movie industry in the United States and the United Kingdom is more developed and has a larger variety of movies and are less influenced by the political and social events of the time.
 </p>
@@ -277,13 +324,14 @@
             <h3 class="text-xl font-semibold mb-3">IMDb Ratings Analysis</h3>
 
 <p>
-    This subsection delves into the analysis of IMDb ratings, focusing on variations across different countries and continents. Our findings indicate notable differences in movie ratings based on the location depicted in the plot.
+    This subsection delves into the analysis of IMDb ratings, focusing on variations across different countries and continents. Our findings indicate notable differences in movie ratings based on the location and shows positive and negative biases in the film industry.
+    The plot below shows the average IMDb rating for each continent accross a number of genres. We can already observe some interesting patterns.
 </p>
 
 <iframe src="plots/average_imdb_rating_per_continent.html" width="100%" height="500px"></iframe>
 
 <p>
-    A comprehensive <strong>ANOVA test</strong> revealed significant variances in the IMDb ratings based on the continent. To further explore these differences, we conducted a <strong>Tukey test</strong> to pinpoint continents with notably distinct ratings.
+    In order to formally analyze our data we have utilized an <strong>ANOVA test</strong> which revealed significant variances in the IMDb ratings based on the continent. To further explore these differences, we conducted a <strong>Tukey test</strong> to pinpoint continents with notably distinct ratings.
 </p>
 
 <iframe src="plots/significant_differences_per_continent.html" width="100%" height="500px"></iframe>
