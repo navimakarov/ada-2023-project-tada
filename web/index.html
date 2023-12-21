@@ -271,18 +271,50 @@
             <h3 class="text-xl font-semibold mb-3">Genre Analysis Across Countries</h3>
 
 <p>
-    The <em>CMU Movie Summary Corpus</em> provides us with genres for each movie, allowing us to analyze the distribution of genres across different countries.
+    The <em>CMU Movie Summary Corpus</em> provides us with genres for each movie, allowing us to analyze the distribution of genres across different countries. As we are exploring biases in the movie industry, genre distributions come across as a very useful tool for comparing different locations.
+</p>
+
+<br>
+<p>We would expect a significant presence of war movies in <em>Afghanistan, Vietnam, Germany</em>; musicals in <em>India</em>; anime in <em>Japan</em>; martial arts and action movies in <em>China</em>; spy movies in <em>Soviet Union</em>. </p>
+<p>On the contrary, few people would expect a significant number of comedy movies in <em>North Korea</em>, movies about business in <em>Soviet Union</em>, war films in <em>Switzerland</em>.</p>
+<p>These prejudices are mostly dictated by cultural perception and historical events. In this section we want to focus on showing differences in genre distributions in different countries and proving that these differences are indeed statistically significant. </p>
+
+<br>
+<p>
+  The plot below helps us to explore the most represented genres (at least 3% of all movies in the country) in different countries. Note that a lot of movies have more than one genre.
 </p>
 
 <iframe src="plots/country_genres.html" width="100%" height="500px"></iframe>
-
+<br>
 <p>
-  TODO: text
+  The plot confirms some stereotypes: 
 </p>
-
+<p>
+  - Martial Arts and Action movies take place a lot in <em>China</em>
+</p>
+<p>
+  - <em>Japan, India and China</em> are influenced a lot by the local movie industry (Japanese Movies, Bollywood and Chinese movies), on the contrary, European countries do not seem to have such a strong local movie genre presence, and rely more on worldwide genres like Drama, Comedy, etc.
+</p>
+<p>
+  - <em>Germany, Vietnam and Afghanistan</em> have a significant presence of war films
+</p>
+<p>
+  - <em>France</em> lives up to its reputation in regards of Romance Movies
+</p>
+<p>We will later test these assumptions, to find statistically significant biases.</p>
+<br>
+<p>
+  Let’s take a closer look at one notable genre: “War film”. Giving definitive locations for “Comedy” movies might be challenging, but for war movies a lot of places come to mind.  We will take the top 10 countries where war films happen (filtered by countries with at least 100 movies, to filter out outliers). 
+</p>
+<br>
 <div id="image-container">
   <img src="plots/top_war_locations.png" alt="Top Locations for War Films" >
 </div>
+
+<p>
+  As seen in the plot, countries that are stereotypically associated with war can be found in the top 10. This means that we are on the right track, and should pursue statistical tests for different countries and genres to identify our biases.
+</p>
+<br>
 
 <p>
     Our analysis, backed by a <strong>Chi-Square test</strong>, reveals a significant disparity in movie genres based on the country. With a p-value close to 0, we confirm that movie genres are not uniformly distributed worldwide. This indicates a higher likelihood of certain genres being associated with specific countries.
@@ -303,14 +335,18 @@
 
 <br/>
 <p>
-  TODO: text
+  We run <em>proportions_ztest</em> to identify if the proportion of genre in a country is significant. It also takes into account a general proportion of the genre, meaning that if a certain country has a lot of movies in total, but a small relative amount for the given genre, then it would not be considered significant, but if another country has a higher percentage of this genre, even given a lower number of movies for the genre compared to the first country, this will be marked as significant.
+We run this test on some stereotypical country-genre pairs to prove the statistical significance. We include some unexpected location-genre pairs (e.g. North Korea - Comedy) to perform a sanity check on our test.
+
 </p>
 
 <iframe src="plots/country_genres_tests.html" width="100%" height="500px"></iframe>
 
 <br/>
 <p>
-  TODO: text
+  As seen in the table, our hypotheses were proven with a significance test.  
+  Indeed, <em>Germany</em> has a significant proportion of war and biographical movies; <em>France</em> has a lot of romance and art films and not significantly many musicals; on the contrary, <em>India</em> has a very significant presence of musicals; <em>Soviet Union</em> lives up to its reputation with many Spy movies, and expectedly is not associated with Comedy (these both are also the case for <em>North Korea</em>); <em>Japan</em> has significant presence of anime, but <em>China</em> doesn’t; however, <em>China</em> has indeed a lot of martial arts movies; <em>Afghanistan</em> is notable for war films; <em>Romania</em> has a significant amount of horror movies.
+
 </p>
 
 <iframe src="plots/country_genre_significance.html" width="100%" height="500px"></iframe>
