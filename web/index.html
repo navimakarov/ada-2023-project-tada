@@ -467,7 +467,7 @@
 
           <p>
           The graphs above provide insights into the alignment of characters in movies, 
-          categorized by varying the threshold represnting the minimum of characters per country. 
+          categorized by varying the threshold representing the minimum of characters per country. 
           Indeed, we've defined a minimum number of characters that a country must have for its data 
           to be included in our analysis. This threshold is essential to ensure that the 
           data for each country is sufficiently representative. It wouldn't be fair or 
@@ -492,11 +492,46 @@
           Countries that don't meet this minimum threshold are coloured in grey on the 
           world map. This coloring serves as a visual indicator of areas with insufficient data, 
           allowing us to focus our analysis on countries with a more robust representation of 
-          characters. Countries in lighter blue have a higher proportion of 'good' characters, 
+          characters. 
+          Countries in lighter blue have a higher proportion of 'good' characters, 
           while those in darker blue have a lower proportion. This distinction helps us quickly 
           assess the global distribution of character alignments and understand potential biases 
           in character representation based on nationality in the film industry. 
           </p>
+
+          <br/>
+
+          <section id="character-table" class="section">
+            <h3 class="text-xl font-semibold mb-3">Number of Characters by Country</h3>
+
+            <table style="width:100%; border-collapse: collapse; text-align: left;">
+              <tr>
+                <th style="border: 1px solid #ddd; padding: 8px;">COUNTRY</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">NUMBER OF CHARACTERS</th>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">United States of America</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">29002.0</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">India</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">9552.0</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">United Kingdom</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">2959.0</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Japan</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">2044.0</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">France</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">1778.0</td>
+              </tr>
+            </table>
+          </section>
+
 
           <br/> <br/>
 
@@ -511,7 +546,7 @@
                     <img src="plots/wordcloud_for_United States.png" alt="">
                   </li>
                     <li class="splide__slide">
-                    <img src="plots/wordcloud_for_Viet Nam.png" alt="">
+                    <img src="plots/wordcloud_for_India.png" alt="">
                   </li>
                     <li class="splide__slide">
                     <img src="plots/wordcloud_for_Japan.png" alt="">
