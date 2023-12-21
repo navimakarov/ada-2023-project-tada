@@ -348,11 +348,15 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
   Indeed, <em>Germany</em> has a significant proportion of war and biographical movies; <em>France</em> has a lot of romance and art films and not significantly many musicals; on the contrary, <em>India</em> has a very significant presence of musicals; <em>Soviet Union</em> lives up to its reputation with many Spy movies, and expectedly is not associated with Comedy (these both are also the case for <em>North Korea</em>); <em>Japan</em> has significant presence of anime, but <em>China</em> doesn’t; however, <em>China</em> has indeed a lot of martial arts movies; <em>Afghanistan</em> is notable for war films; <em>Romania</em> has a significant amount of horror movies.
 
 </p>
+<br>
+<p>
+  As we’ve discovered some individual cases of significance testing, we will run significance tests for all possible country-genre pairs and visualize how certain countries have significant presence of certain genres. As we are running many tests simultaneously, we are using <u>Bonferroni correction</u> on our p-value threshold due to an increased risk of a “type I” error when making multiple statistical tests.
+</p>
 
 <iframe src="plots/country_genre_significance.html" width="100%" height="500px"></iframe>
 
 <p>
-  TODO: text
+  This table captures statistically significant country-genre relations. The observations serve as a strong argument of <b>bias in movies</b>. 
 </p>
               
             <br/> <br/>
@@ -420,12 +424,9 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
           <h3 class="text-xl font-semibold mb-3">IMDb ratings</h3>
             <p>
-              In this section we analyze IMDb ratings of different cities. Our focus is on cities that feature in the plot of at least 50 movies. 
+              Is it better to make a movie about <em>New York</em> or <em>London</em>? Let's capture IMDb ratings based on cities in the movies.
             </p>
-              
-            <p>
-              TODO: IMDb distribution
-            </p>
+            <br>
             <div id="image-container">
               <img src="plots/imdb_distribution.png" alt="IMDb Ratings Distribution" >
             </div>
@@ -433,7 +434,8 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             <br/> <br/>
 
             <p>
-              TODO: IMDb by city explanation
+              The Gaussian distribution of IMDb ratings suggests that there is no significant difference in the average ratings of movies between countries, as the ratings tend to follow a normal distribution centered around a similar mean.s
+            </p>
             <iframe src="plots/imdb_genres.html" width="100%" height="500px"></iframe>
 
             We can see that the distribution of IMDb ratings is not uniform across cities.
@@ -441,11 +443,6 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             <iframe src="plots/significant_differences_per_city.html" width="100%" height="500px"></iframe>
             </p>
 
-            <br/> <br/>
-
-            <p>
-              TODO: IMDb conclusion
-            </p>
 
           </section>
         
