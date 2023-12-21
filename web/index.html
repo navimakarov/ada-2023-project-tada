@@ -87,7 +87,7 @@
         font-size: 1.25rem;
         line-height: 1.5;
       }
-      #imdb_distribution {
+      #image-container {
         display: flex;
         justify-content: center;
       }
@@ -230,6 +230,14 @@
 <iframe src="plots/country_genres.html" width="100%" height="500px"></iframe>
 
 <p>
+  TODO: text
+</p>
+
+<div id="image-container">
+  <img src="plots/top_war_locations.png" alt="Top Locations for War Films" >
+</div>
+
+<p>
     Our analysis, backed by a <strong>Chi-Square test</strong>, reveals a significant disparity in movie genres based on the country. With a p-value close to 0, we confirm that movie genres are not uniformly distributed worldwide. This indicates a higher likelihood of certain genres being associated with specific countries.
 </p>
 <br/>
@@ -245,6 +253,20 @@
     <li><strong>India:</strong> Known for Romance and Musical movies, along with its signature Bollywood genre.</li>
     <li><strong>Romania:</strong> Known for its Horror movies. Most notably, <em>Dracula</em> related movies.</li>
 </ul>
+
+<br/>
+<p>
+  TODO: text
+</p>
+
+<iframe src="plots/country_genres_tests.html" width="100%" height="500px"></iframe>
+
+<br/>
+<p>
+  TODO: text
+</p>
+
+<iframe src="plots/country_genre_significance.html" width="100%" height="500px"></iframe>
 
               
             <br/> <br/>
@@ -317,8 +339,8 @@
             <p>
               TODO: IMDb distribution
             </p>
-            <div id="imdb_distribution">
-              <img src="images/imdb_distribution.png" alt="IMDb Ratings Distribution" >
+            <div id="image-container">
+              <img src="plots/imdb_distribution.png" alt="IMDb Ratings Distribution" >
             </div>
 
             <br/> <br/>
@@ -400,8 +422,6 @@
           just one evil character.
           </p>
 
-          <br/>
-
           <p>
           A threshold of 10 characters, for instance, strikes a balance between having a representative 
           sample and including a diverse range of countries in the analysis. This number is substantial 
@@ -411,8 +431,6 @@
           in films while ensuring that their portrayal isn't dominated by a few characters.
           </p>
 
-          <br/><br/>
-          
           <p>
           Countries that don't meet this minimum threshold are coloured in grey on the 
           world map. This coloring serves as a visual indicator of areas with insufficient data, 
