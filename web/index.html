@@ -509,59 +509,27 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             in films while ensuring that their portrayal isn't dominated by a few characters.
           </p>
 
-
-          <div id="image-container">
-            <div id="slider" style="width: 80%;">
-              <section id="image-carousel1" class="splide" aria-label="Beautiful Images">
-                <div class="splide__track">
-                  <ul class="splide__list">
-                    <li class="splide__slide">
-                      <img src="plots/map_for_k_1.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_5.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_10.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_25.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_50.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_200.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_400.png" alt="">
-                    </li>
-                      <li class="splide__slide">
-                      <img src="plots/map_for_k_800.png" alt="">
-                    </li>
-                  </ul>
-                </div>
-              </section>
-              </div>
-           </div>
-
           <br/><br/>
 
           <div id="threshold-container" class="container mx-auto my-4">
             <div class="flex justify-center">
-              <label for="threshold-selector" class="mr-2">Select a threshold:</label>
+              <label for="threshold-selector" class="mr-2">Select the minimum number of characters :</label>
               <select id="threshold-selector" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" onchange="updateMap(this.value)">
                 <option value="1">1</option>
                 <option value="5">5</option>
                 <option value="10" selected>10</option>
                 <option value="25">25</option>
                 <option value="50">50</option>
+                <option value="100">100</option>
                 <option value="200">200</option>
+                <option value="400">400</option>
+                <option value="800">800</option>
               </select>
             </div>
           </div>
           
-          <div id="image-container">
+          <div id="image-container" style="text-align: center;">
+            <h2>Ratio of Good (1) to Evil (0) Characters by Country</h2>
             <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%;">
           </div>
           
