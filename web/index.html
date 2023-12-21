@@ -378,7 +378,7 @@
           <h3 class="text-xl font-semibold mb-3">Character alignments by countries</h3>
 
             <div id="slider">
-              <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+              <section id="image-carousel1" class="splide" aria-label="Beautiful Images">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="splide__slide">
@@ -450,7 +450,7 @@
           <h3 class="text-xl font-semibold mb-3">Character names by countries</h3>
 
           <div id="slider">
-            <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+            <section id="image-carousel2" class="splide" aria-label="Beautiful Images">
               <div class="splide__track">
                 <ul class="splide__list">
                   <li class="splide__slide">
@@ -538,7 +538,7 @@
 
             <h3 class="text-xl font-semibold mb-3">Genre evolution</h3>
             <div id="slider">
-              <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+              <section id="image-carousel3" class="splide" aria-label="Beautiful Images">
                 <div class="splide__track">
                   <ul class="splide__list">
                     <li class="splide__slide">
@@ -634,7 +634,29 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        new Splide('#image-carousel', {
+        new Splide('#image-carousel1', {
+          type       : 'loop',
+          perPage    : 1,
+          perMove    : 1,
+          gap        : '1rem',
+          pagination : true,
+          arrows     : true,
+        }).mount();
+     });
+
+     document.addEventListener('DOMContentLoaded', function() {
+        new Splide('#image-carousel2', {
+          type       : 'loop',
+          perPage    : 1,
+          perMove    : 1,
+          gap        : '1rem',
+          pagination : true,
+          arrows     : true,
+        }).mount();
+     });
+
+     document.addEventListener('DOMContentLoaded', function() {
+        new Splide('#image-carousel3', {
           type       : 'loop',
           perPage    : 1,
           perMove    : 1,
