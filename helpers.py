@@ -69,9 +69,9 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     cities_movies = {city: cities_movies[city] for city in cities}
     
     # These are corrections to the errors that ChatGPT made
-    broken_countries = ['unknown', 'unspecified', 'None', 'Moon', '', 'Africa', 'fictional', 'Unknown', 'Earth', 'Mars']
+    broken_countries = ['unknown', 'unspecified', 'None', 'Moon', '', 'Africa', 'fictional', 'Unknown', 'Earth', 'Mars', 'South America']
     broken_cities = ['unknown', 'unspecified', 'None', 'Moon', '', 'village', 'town', 'small village', 'small town', 'remote village', 'hospital', 'fishing village', 'desert', 'countryside', 'city', 'big city', 'Unnamed City', 'Unknown', 'Town', 'Times Square',  'Small Town', 'Small town',  'Paradise',
-                     'Gotham City', 'Europe', 'Earth', 'City', 'Atlantic City', 'Metropolis']
+                     'Gotham City', 'Europe', 'Earth', 'City', 'Atlantic City', 'Metropolis', 'Brooklyn', 'Hollywood', 'Manhattan', 'California']
 
     countries_in_cities = ['Russia', 'Australia', 'Canada', 'United States', 'India', 'Iraq', 'New Zealand', 'Mexico', 'Jamaica', 'Japan', 'Italy', 'Panama', 'Rome', 'Singapore', 'Switzerland', 'Sweden', 'Spain','Germany', 'England', 'Egypt', 'China', 'Alexandria', 'America', 'France', 'Holland', 'Brazil', 'Vietnam', 'Greece', 'Thailand']
     cities_to_merge = [
@@ -82,9 +82,11 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     
     countries_to_merge = [
         ['United Kingdom', 'England', 'UK', 'Great Britain', 'Northern Ireland', 'Wales', 'Scotland'],
+        ['Myanmar', 'Burma'],
         ['Egypt', 'Alexandria'],
         ['Netherlands', 'Holland'],
         ['Italy', 'Rome'],
+        ['Bosnia and Herzegovina', 'Bosnia'],
         ['United States', 'America', 'USA'],
         ['USSR', 'Soviet Union']
     ]
