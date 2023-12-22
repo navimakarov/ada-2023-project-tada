@@ -515,7 +515,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
   
             <div id="threshold-container" style="margin-right: 20px; flex: 0 0 150px;"> 
               <label for="threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 1em;">Select the minimum number of characters:</label>
-              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 2em;" onchange="updateMap(this.value)">
+              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 1.5em;" onchange="updateMap(this.value)">
                 <option value="1">1</option>
                 <option value="5">5</option>
                 <option value="10" selected>10</option>
@@ -529,7 +529,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             </div>
             
             <div id="image-container" style="text-align: center; position: relative; width: 180%;"> 
-              <h2 style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Ratio of Good (1) to Evil (0) Characters by Country</h2>
+              <h2 style="font-size: 2em; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Ratio of Good (1) to Evil (0) Characters by Country</h2>
               <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%; max-width: none;"> 
             </div>
             
@@ -736,10 +736,9 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               </select>
             </div>
 
-            <div id="image-container" style="text-align: center; position: relative; width: 60%;">
-            <h2 style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Word Cloud</h2>
-            <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%;">
-
+          <div id="image-container" style="text-align: center; position: relative; width: 60%;">
+            <h2 style="font-size: 2em; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Word Cloud</h2>
+            <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%; max-width: none;">
           </div>
 
           <script>
@@ -751,7 +750,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
           
           <br/><br/>
 
-          <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+          <!-- <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
   
             <div id="selector-container" style="text-align: center; margin-bottom: 20px;">
               <label for="country-selector" style="font-size: 0.8em;">Select the country:</label>
@@ -779,7 +778,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             function updateWordcloud(value) {
               document.getElementById("wordcloud-image").src = `plots/wordcloud_for_${value}.png`;
             }
-          </script>
+          </script> -->
           
           <br/><br/>
           
