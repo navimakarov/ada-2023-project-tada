@@ -511,7 +511,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
           <br/><br/>
 
-          <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
+          <!-- <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
   
             <div id="threshold-container" style="margin-right: 20px;">
               <label for="threshold-selector">Select the minimum number of characters:</label>
@@ -539,8 +539,37 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             function updateMap(value) {
               document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
             }
-          </script>
+          </script> -->
           
+          <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
+  
+            <div id="threshold-container" style="margin-right: 20px; width: 120px;">
+              <label for="threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 0.8em;">Minimum Characters:</label>
+              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" style="font-size: 0.8em;" onchange="updateMap(this.value)">
+                <option value="1">1</option>
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="400">400</option>
+                <option value="800">800</option>
+              </select>
+            </div>
+          
+            <div id="image-container" style="text-align: center; position: relative;">
+              <h2 style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Ratio of Good (1) to Evil (0) Characters by Country</h2>
+              <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%;">
+            </div>
+          
+          </div>
+          
+          <script>
+            function updateMap(value) {
+              document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
+            }
+          </script>
           
 
           <p>
