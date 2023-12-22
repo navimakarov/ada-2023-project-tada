@@ -152,6 +152,63 @@
       color: #e2e8f0;
       z-index: 1;
     }
+
+.section-title {
+  position: relative;
+  color: white;
+  padding: 20px;
+  background-size: cover;
+}
+
+#intro .section-title {
+  background-image: url('images/intro_conclusion.webp');
+  background-position: 95% 95%;
+}
+
+#data .section-title {
+  background-image: url('images/data.webp');
+  background-position: 30% 30%;
+}
+
+#large .section-title {
+  background-image: url('images/large.webp');
+  background-position: 40% 40%;
+}
+
+#cityscapes .section-title {
+  background-image: url('images/cityscapes.jpg');
+  background-position: 50% 50%;
+}
+
+#characters .section-title {
+  background-image: url('images/characters.webp');
+  background-position: 20% 20%;
+}
+
+#time .section-title {
+  background-image: url('images/time.jpg');
+  background-position: 50% 50%;
+}
+
+#conclusion .section-title {
+  background-image: url('images/intro_conclusion.webp');
+  background-position: 50% 50%;
+
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2); 
+  z-index: -1;
+}
+
+
+
     </style>
   </head>
   <body>
@@ -179,7 +236,7 @@
       <main>
         <!-- Introduction Section -->
         <section id="intro" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Introduction</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Introduction</h2>
           <p>
             Are movies from Afghanistan associated with war? Was Paris always about love and romance? But most importantly... is Dracula present in every horror Romanian movie?
             <br />
@@ -197,7 +254,7 @@
         </section>
 
         <section id="data" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Understanding our data</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Understanding our data</h2>
           <p>
             Before we dive into the depths of our analysis, it's crucial to first examine our dataset closely. We utilized the <em>CMU Movie Summary Corpus</em> dataset, a comprehensive collection of 42,306 movie summaries. To enrich this dataset, we employed <a class="text-blue-500" href="https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates" target="_blank">LLMs (OpenAI GPT-3.5-Turbo model)</a> for generating the depicted locations, characters' alignments, and nationalities within the stories.
             A large part of our analysis is based on the information extracted using the LLMs, data that on its own is not always correct. However, we believe that the data is accurate enough to provide us with meaningful insights and to draw conclusions. We also employed a data cleaning process to remove any problems the data had.
@@ -265,7 +322,7 @@
         </section>
 
         <section id="large" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Large scale analysis</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Large scale analysis</h2>
           <p>
             We will now show our first analysis section. We will start with a top-down approach, looking at the entire cinematic world, analyzing the countries and continents. We will delve into cities and characters in the subsequent sections.
           </p>
@@ -426,7 +483,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
         <!-- Cityscapes Section -->
         <section id="cityscapes" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Cityscapes</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Cityscapes</h2>
           <p>
             Cities are a central part of many movies. They are often used as a
             backdrop for the story and can even be a character in their own
@@ -479,11 +536,10 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
             <br/> <br/>
 
-          <h3 class="text-xl font-semibold mb-3">Genre analysis</h3>
+          <h3 class="text-xl font-semibold mb-3">Genre Distributions Across Cities</h3>
 
             <p>
-              As part of the CMU Movie Summary Corpus we have all the genres for each movie.
-              We can use this to see how the genres are distributed across cities.
+              As we’ve explored genre biases in countries, we now zoom in to look at cities. While one might expect the genre distributions in Paris and Tokyo to align with those of France and Japan, respectively, the situations in New York and Las Vegas could present more variation, both from each other and from the overall genre distribution of the United States.
             </p>
 
             <iframe src="plots/city_genres.html" width="100%" height="500px"></iframe>
@@ -538,7 +594,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
         
         <!-- Characters Section -->
         <section id="characters" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Characters</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Characters</h2>
 
           <p>
             Characters are the heart of any story. They are the ones that
@@ -859,7 +915,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
         <!-- Time Section -->
         <section id="time" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Going back in time</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Going back in time</h2>
           <p>
             Movies are a reflection of the time they were made in. They are
             influenced by the culture and events of the time. We will look at
@@ -1021,15 +1077,16 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
         <!-- Conclusion Section -->
         <section id="conclusion" class="section">
-          <h2 class="text-3xl font-semibold mb-3">Conclusion</h2>
+          <h2 class="text-3xl font-semibold mb-3 section-title">Conclusion</h2>
           <p>
-            As our cinematic journey concludes, we reflect on the power of film
-            to influence, inform, and inspire. Our findings offer a mosaic of
-            insights into how cinema, across eras and origins, crafts our
-            collective consciousness. By understanding these biases, we become
-            more informed viewers, able to discern the line where art diverges
-            from reality, and appreciate the stories told within their
-            historical and cultural context.
+            
+In conclusion, our journey through the world of cinema was a challenge in continually shifting perspectives to identify and question underlying stereotypes and biases. By looking into various aspects such as genre distribution across countries, the portrayal of cities, character alignments and names, and the evolution of cinematic themes over time, we have uncovered a variety of narratives that reflect both global diversity and specific cultural biases.
+<br/><br/>
+Our findings highlight the significant role cinema plays in shaping perceptions and reinforcing stereotypes. From the dominance of certain genres in specific countries to the evolution of themes over decades, films often mirror societal values, historical events, and cultural shifts. The portrayal of cities and the alignment of characters in different countries also contribute to a nuanced understanding of global storytelling practices.
+<br/><br/>
+This project underscores the importance of viewing cinema not just as entertainment, but also as a lens through which we can understand the world. The biases and trends we identified prompt a more critical and informed approach to consuming film. As we continue to engage with cinema, let it be with an awareness of its power to both reflect and shape our understanding of diverse cultures and histories.
+
+
           </p>
         </section>
       </main>
