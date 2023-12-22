@@ -515,7 +515,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
   
             <div id="threshold-container" style="margin-right: 20px;">
               <label for="threshold-selector">Select the minimum number of characters:</label>
-              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" onchange="updateMap(this.value)">
+              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" style="width: 150px; font-size: 0.8em;" onchange="updateMap(this.value)">
                 <option value="1">1</option>
                 <option value="5">5</option>
                 <option value="10" selected>10</option>
@@ -540,6 +540,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
             }
           </script>
+          
           
 
           <p>
