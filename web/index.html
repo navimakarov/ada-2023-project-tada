@@ -118,6 +118,40 @@
           color: #0000EE;
           text-decoration: underline;
       }
+
+      #header-title {
+      position: relative;
+      text-align: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      background-image: url('images/earth.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    #header-title::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    #header-title h1 {
+      font-size: 4rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      z-index: 1;
+    }
+
+    #header-title .authors {
+      font-size: 1.25rem;
+      color: #e2e8f0;
+      z-index: 1;
+    }
     </style>
   </head>
   <body>
@@ -147,7 +181,7 @@
         <section id="intro" class="section">
           <h2 class="text-3xl font-semibold mb-3">Introduction</h2>
           <p>
-            Are movies from Afganistan associated with war? Was Paris always about love and romance? But most importantly... is Dracula present in every horror Romanian movie?
+            Are movies from Afghanistan associated with war? Was Paris always about love and romance? But most importantly... is Dracula present in every horror Romanian movie?
             <br />
             <br />
             <strong>Welcome to "How does cinema view the world?"</strong>, a data visualization journey through the cinematic world. In this project, we aim to answer these questions, uncover many other biases and analyse whether certain stereotypes are actually true.
@@ -224,7 +258,8 @@
                   </pre>
               </div>
           </div>
-
+        </p>
+        <p>
           Using these outputs we have augmented our dataset and we can now start our analysis.
         </p>
         </section>
@@ -407,7 +442,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
           <h3 class="text-xl font-semibold mb-3">Most Popular Cities</h3>
 
             <p>
-             Lets first compute the most popular cities (where the movie plot takes places) for our Top 10 most represented countries. 
+              Let's first compute the most popular cities (where the movie plot takes places) for our Top 10 most represented countries. 
              We will highlight the proportion of movies that were produced by the country in which the city is located, as opposed to those that were made by foreign countries.
             </p>
 
@@ -420,7 +455,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               Hong Kong is really interesting because even though it's not in the top 10 of the biggest cities in China, it's highly represented in movies, probably due to its history
               of being a colony of the British Empire before transfering to China in 1997.
               <br/> 
-              Lets now dive further and looking into which of these foreign countries make the most movie plots talking place in a particular city.
+              Let's now dive further and looking into which of these foreign countries make the most movie plots talking place in a particular city.
               We will look into Berlin, which has a high percentage of 66% of foreign produced movies.
             </p>
 
@@ -429,7 +464,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               As we might have predicted, the United States is a major contributor to the movie industry and has produced more movies set in Berlin than any other country.
               This considerable impact may lead to a certain bias in the cinematic image of Berlin as it has primarily been depicted by American filmmakers.
              </p> 
-
+           <br/> <br/>
            <h4 class="text-xl font-semibold mb-3">Top 10 Cities</h4>
 
            <p>
@@ -490,7 +525,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             - <u>Martial Arts</u>: Hong Kong is a clear winner with a biggest amount of Martial Arts movies and a rating of 6.34
            </p>
            <p>
-            - <u>Bollywood</u>: This genre is dominated by Indian cities, with an exception of London, which, performs the words out of major cities, and New York, which is almost on par with Delhi and Mumbai. Very high rating in Calcutta might be explained by a small number of movies associated with it (17).
+            - <u>Bollywood</u>: This genre is dominated by Indian cities, with an exception of London, which, performs the worst out of major cities, and New York, which is almost on par with Delhi and Mumbai. Very high rating in Calcutta might be explained by a small number of movies associated with it (17).
            </p>
 
            <br>
