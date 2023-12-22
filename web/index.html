@@ -514,8 +514,8 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
           <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: flex-start;">
   
             <div id="threshold-container" style="margin-right: 20px; flex: 0 0 150px;"> 
-              <label for="threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 0.8em;">Select the minimum number of characters:</label>
-              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 0.8em;" onchange="updateMap(this.value)">
+              <label for="threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 1em;">Select the minimum number of characters:</label>
+              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 2em;" onchange="updateMap(this.value)">
                 <option value="1">1</option>
                 <option value="5">5</option>
                 <option value="10" selected>10</option>
@@ -751,12 +751,10 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
           
           <br/><br/>
 
-
-
-          <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; flex-direction: column; align-items: center;"> <!-- Added flex-direction: column -->
-            
-            <div id="threshold-container" style="margin-bottom: 20px;"> <!-- Removed width, added margin-bottom -->
-              <label for="country-selector" style="text-align: center; margin-bottom: 5px; font-size: 0.8em;">Select the country:</label>
+          <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+  
+            <div id="selector-container" style="text-align: center; margin-bottom: 20px;">
+              <label for="country-selector" style="font-size: 0.8em;">Select the country:</label>
               <select id="country-selector" class="appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 0.8em;" onchange="updateWordcloud(this.value)">
                 <option value="United States" selected>United States</option>
                 <option value="India">India</option>
@@ -770,8 +768,8 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               </select>
             </div>
             
-            <h2 style="color: black;">Word Cloud</h2> <!-- Removed absolute positioning and background from the title -->
-            <div id="image-container" style="text-align: center; width: 60%;">
+            <h2 style="color: black; margin-bottom: 20px;">Word Cloud</h2>
+            <div id="image-container" style="width: 60%; margin-bottom: 20px;">
               <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%;">
             </div>
             
@@ -779,9 +777,11 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
           
           <script>
             function updateWordcloud(value) {
-              document.getElementById("wordcloud-image").src = `plots/wordcloud_for_${value.replace(/\s+/g, '')}.png`; // Added regex to remove whitespace for proper file path
+              document.getElementById("wordcloud-image").src = `plots/wordcloud_for_${value}.png`;
             }
           </script>
+          
+          <br/><br/>
           
 
           <p>
