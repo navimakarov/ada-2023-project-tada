@@ -444,3 +444,23 @@ def get_movie_names_from_ids(movie_ids, movie_metadata):
             movie_names.append(movie_names_dict[movie_id])
     
     return movie_names
+
+
+def is_foreign(country,movie, movie_metadata):
+    try : 
+        return country != extract_country(movie_metadata[movie_metadata['Wikipedia movie ID'] == movie]['Movie countries (Freebase ID:name tuples)'].values[0])
+    except : 
+        return False
+    
+
+def is_local(country,movie, movie_metadata):
+    try : 
+        return country == extract_country(movie_metadata[movie_metadata['Wikipedia movie ID'] == movie]['Movie countries (Freebase ID:name tuples)'].values[0])
+    except :
+        return False
+    
+def find_country_of_city(city, cities_in_country):
+    for country, cities in cities_in_country.items():
+        if city in cities:
+            return country 
+    return False

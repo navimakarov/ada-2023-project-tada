@@ -407,17 +407,44 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
           <h3 class="text-xl font-semibold mb-3">Most Popular Cities</h3>
 
             <p>
-              We could highlight the cities where the plot took place the most often in our movie dataset.
-              We also can show how many of these movies were made from the country the city is located.
+             Lets first compute the most popular cities (where the movie plot takes places) for our Top 10 most represented countries. 
+             We will highlight the proportion of movies that were produced by the country in which the city is located, as opposed to those that were made by foreign countries.
             </p>
 
             <iframe src="plots/most_popular_cities.html" width="100%" height="500px"></iframe>
 
             <p>
-              Top 10 Cities
+              Looking at these 10 countries, we often see that the most popular city in movies is also one of the biggest, most populated cities in the country.
+              **Mumbai** stands out with a high number of local films, showing India's strong film industry or the little interest of foreign countries.
+              On the other hand, **Rome**, with its rich history, seems to be a favorite for filmmakers from around the world, having the highest foreign representation among these cities.
+              **Hong Kong** is really interesting because even though it's not in the top 10 of the biggest cities in China, it's highly represented in movies, probably due to its history
+              of being a colony of the British Empire before transfering to China in 1997.
+              Lets now dive further and looking into which of these foreign countries make the most movie plots talking place in a particular city.
+              We will look into Berlin, which has a high percentage of 66% of foreign produced movies.
+            </p>
 
+            <iframe src="plots/foreign_movie_prod_berlin.html" width="100%" height="500px"></iframe>
+            <p>
+              As we could have predicted, as the United States is a major producer of the movie industry it has made the most movies talking place
+              in Berlin than any other country. This can show to some extent a bias in the image Berlin has in cinema to the viewer as it is mainly 
+              been depicted by American moviemakers.  
+             </p> 
+
+           <h4 class="text-xl font-semibold mb-3">Top 10 Cities</h4>
+
+           <p>
+            We can now showcase the ten most appreciated cities for movie narratives in general and see if there are any trends or anomalies. 
+            These cities are likely the ones that viewers have the most preconceived notions about, even if they have never visited them in their lives.
             </p>
             <iframe src="plots/top10_cities.html" width="100%" height="500px"></iframe>
+
+
+            <p>
+              Five of these cities are in the United States, collectively representing 25.6% of movie plot locations. 
+              This is unsurprising, given that the majority of the world's movies are produced in the United States.
+              Nevertheless, this significant influence can be seen as a form of soft power, potentially shaping foreign viewers' perceptions of these cities."
+              </p>
+
             <br/> <br/>
 
           <h3 class="text-xl font-semibold mb-3">Genre analysis</h3>
