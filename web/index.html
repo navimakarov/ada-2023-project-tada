@@ -528,8 +528,8 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               </select>
             </div>
           
-            <div id="map-image-container" style="text-align: center; width: 160%;">
-              <h2 id="map-title" style="font-size: 1.4em; color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; margin-bottom: 13px;">Ratio of good(1) to evil(0) characters by country</h2>
+            <div id="map-image-container" style="text-align: center; width: 200%;">
+              <h2 id="map-title" style="font-size: 1.5em; color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; margin-bottom: 10px;">Ratio of good(1) to evil(0) characters by country</h2>
               <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%; max-width: none;">
             </div>
           
@@ -540,38 +540,6 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
             }
           </script>
-
-
-          <!-- <div id="map-content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: flex-start;">
-            
-            <div id="map-threshold-container" style="margin-right: 20px; flex: 0 0 150px;">
-              <label for="map-threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 1em;">Select the minimum number of characters:</label>
-              <select id="map-threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 1em;" onchange="updateMap(this.value)">
-                <option value="1">1</option>
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-                <option value="200">200</option>
-                <option value="400">400</option>
-                <option value="800">800</option>
-              </select>
-            </div>
-            
-            <div id="map-image-container" style="text-align: center; position: relative; width: 250%;">
-              <h2 id="map-title" style="font-size: 1.4em; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; z-index: 1;">Ratio of 'good' (1) to 'evil' (0) characters by country</h2>
-              <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%; max-width: none;">
-            </div>            
-            
-          </div>
-
-          <script>
-            function updateMap(value) {
-              document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
-            }
-          </script> -->
-
 
           <p>
            The countries in lighter blue have a higher proportion of 'good' characters, 
@@ -751,6 +719,15 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
           <h3 class="text-xl font-semibold mb-3">Character names by countries</h3>
 
+          <p>
+            Moving beyond character alignments, we look into the character names across different countries. 
+            These word clouds visually 
+            capture the essence of naming conventions in the global film industry, 
+            highlighting the most frequently occurring names within each nation.
+          </p>
+
+          <br/>
+
           <div id="wordcloud-content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
             
             <div id="wordcloud-threshold-container" style="margin-right: 20px; width: 120px;">
@@ -768,7 +745,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               </select>
             </div>
 
-            <div id="wordcloud-image-container" style="text-align: center; width: 60%;">
+            <div id="wordcloud-image-container" style="text-align: center; width: 70%;">
               <h2 id="wordcloud-title" style="font-size: 1.4em; color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; margin-bottom: 20px;">Word cloud per country</h2>
               <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%; max-width: none;">
             </div>            
@@ -789,12 +766,21 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             These word clouds provide a graphical representation of the most common names 
             associated with characters from different national backgrounds in movies, 
             offering an interesting cultural insight into name usage in cinematic contexts. 
-            For instance, we see "Nguyen" as a prominent name in the Vietnam word cloud, 
-            reflecting its commonality in Vietnamese culture. Similarly, classic Western 
-            names dominate the clouds for the United States and France, and the Iranian 
-            cloud shows a mix of traditional Persian names.
+            For instance, we see "Jan" as a prominent name in the Netherlands word cloud, 
+            reflecting its commonality in Dutch culture. Similarly, classic Western 
+            names dominate the clouds for the United States and France, and the Indian 
+            cloud shows a mix of traditional Indian names.
           </p>
 
+          <br/>
+
+          <p>
+            In the next step, we will compare these results with real-world data, thus, enabling us to study  
+            if the world of film mirrors or diverges from actual 
+            naming trends in various cultures. This comparison will shed light on the extent 
+            to which movie characters' names are influenced by or reflective of their real-life 
+            counterparts in different countries.
+          </p>
 
         </section>
 
