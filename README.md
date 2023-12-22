@@ -18,17 +18,13 @@ Our goal is to provide insights into cinema's role in shaping global perspective
     - Are villains usually from certain regions, depending on the origin country of the movie?
 
 - How are the antagonists depicted in movies?
-    - How does Eastern and Western Europe view villains?
-    - How do the US and Russia view antagonists?
 
 - Are the ratings influenced by the location?
 
 - Are stereotypes and movies influenced deeply by time?
 
-- How accurately are human features such as names or gender ratio represented in movies?
+- How accurately are human features such as names represented in movies?
     - Are there any relations to the country or city where the plot takes place? 
-    - How does it compare to real-life statistics?
-
 
 ## Additional Datasets
 
