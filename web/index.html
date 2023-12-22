@@ -348,7 +348,7 @@
 <p>
     With our analysis we wanted to uncover hard to find patterns that might not be easily representable in terms of genres as such we have decided to extract meaning from summaries in a less discrete fashion. We utilized <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/Word_embedding" target="_blank">embeddings</a></strong>, a technique to represent text as vectors. In this method, the meaning is encapsulated in the spatial distances between vectors. For our analysis, the <strong><a class="text-blue-500" href="https://openai.com/blog/new-and-improved-embedding-model" target="_blank">OpenAI Ada2 model</a></strong> was employed to create these embeddings.
     <br/><br/>
-    <img src="plots/embedding.png" alt="Embedding" width="100%" height="200px">
+    <img src="plots/embedding.png" alt="Embedding" width="70%" height="200px" class="mx-auto block"/>
     This approach allows us to quantify similarities between movies and to identify clusters. These clusters help us understand how movies are distributed across different countries and observe changes and patterns over time.
     <br/><br/>
     To provide a comprehensive view, we employed <strong><a class="text-blue-500" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding" target="_blank">T-SNE</a></strong> for dimensionality reduction, making it easier to visualize these embeddings in two dimensions. Below, we can see the embedding space for all movies, with each point representing a movie. The colors represent the cosine similarity to the search term selected.
