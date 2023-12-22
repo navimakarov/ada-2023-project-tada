@@ -73,7 +73,7 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     broken_cities = ['unknown', 'unspecified', 'None', 'Moon', '', 'village', 'town', 'small village', 'small town', 'remote village', 'hospital', 'fishing village', 'desert', 'countryside', 'city', 'big city', 'Unnamed City', 'Unknown', 'Town', 'Times Square',  'Small Town', 'Small town',  'Paradise',
                      'Gotham City', 'Europe', 'Earth', 'City', 'Atlantic City', 'Metropolis', 'Brooklyn', 'Hollywood', 'Manhattan', 'California']
 
-    countries_in_cities = ['Russia', 'Australia', 'Canada', 'United States', 'India', 'Iraq', 'New Zealand', 'Mexico', 'Jamaica', 'Japan', 'Italy', 'Panama', 'Rome', 'Singapore', 'Switzerland', 'Sweden', 'Spain','Germany', 'England', 'Egypt', 'China', 'Alexandria', 'America', 'France', 'Holland', 'Brazil', 'Vietnam', 'Greece', 'Thailand']
+    countries_in_cities = ['Russia', 'Australia', 'Canada', 'United States', 'India', 'Iraq', 'New Zealand', 'Mexico', 'Jamaica', 'Japan', 'Italy', 'Panama', 'Singapore', 'Switzerland', 'Sweden', 'Spain','Germany', 'England', 'Egypt', 'China', 'America', 'France', 'Holland', 'Brazil', 'Vietnam', 'Greece', 'Thailand']
     cities_to_merge = [
         ['Washington D.C.', 'Washington', 'Washington DC', 'Washington, D.C.', 'Washington, DC'],
         ['Texas', 'Texas town'],
@@ -83,11 +83,9 @@ def load_city_country_analysis(combined_plot_summaries, data_path):
     countries_to_merge = [
         ['United Kingdom', 'England', 'UK', 'Great Britain', 'Northern Ireland', 'Wales', 'Scotland'],
         ['Myanmar', 'Burma'],
-        ['Egypt', 'Alexandria'],
         ['Netherlands', 'Holland'],
-        ['Italy', 'Rome'],
         ['Bosnia and Herzegovina', 'Bosnia'],
-        ['United States', 'America', 'USA'],
+        ['United States', 'America', 'USA', 'United States of America'],
         ['USSR', 'Soviet Union']
     ]
 
@@ -192,11 +190,29 @@ def load_data(data_path):
                                          'Movie genres (Freebase ID:name tuples)'
                                          ])
 
+
+
+    country_merge = [
+        ['United Kingdom', 'England', 'UK', 'Great Britain', 'Northern Ireland', 'Wales', 'Scotland', 'Kingdom of Great Britain'],
+        ['Myanmar', 'Burma'],
+        ['Egypt', 'Alexandria'],
+        ['Netherlands', 'Holland'],
+        ['Italy'],
+        ['Bosnia and Herzegovina', 'Bosnia'],
+        ['United States', 'America', 'USA', 'United States of America'],
+        ['Russia','USSR', 'Soviet Union','Soviet occupation zone'],
+        ['China', 'Hong Kong'],
+        ['Germany', 'West Germany', 'German Democratic Republic','Weimar Republic', 'Nazi Germany'],
+        ['Serbia', 'Serbia and Montenegro']
+    ]
+
+    movie_metadata = merge_countries(movie_metadata,country_merge)
+
     plot_summaries = pd.read_csv(data_path + 'MovieSummaries/plot_summaries.txt', sep='\t', names=[
         'Wikipedia movie ID',
         'Summary'
     ])
-    
+
     # load the embeddings from disk
     embeddings = np.load(data_path + 'embeddings.npy', allow_pickle=True)
     embeddings_df = pd.DataFrame(embeddings, columns=['Wikipedia movie ID', 'embedding'])
@@ -391,6 +407,25 @@ def get_color(ratio):
     else:
         return 'red'
     
+
+def merge_countries(movie_metadata, country_merge_list):
+    # Create a mapping from alternative names to primary country name
+    country_map = {alt_name: group[0] for group in country_merge_list for alt_name in group}
+    
+    # Iterate over the DataFrame
+    for index, row in movie_metadata.iterrows():
+        # Extract the country using the defined function
+        extracted_country = extract_country(row['Movie countries (Freebase ID:name tuples)'])
+
+        # Check if the extracted country is in the alternative names
+        if extracted_country in country_map:
+            # Get the primary country name
+            primary_country = country_map[extracted_country]
+            # Update the country string with the primary country name
+            new_country_string = json.dumps({list(json.loads(row['Movie countries (Freebase ID:name tuples)']).keys())[0]: primary_country})
+            movie_metadata.at[index, 'Movie countries (Freebase ID:name tuples)'] = new_country_string
+
+    return movie_metadata
 
 
 def get_movie_names_from_ids(movie_ids, movie_metadata):
