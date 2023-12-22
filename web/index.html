@@ -511,11 +511,11 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
           <br/><br/>
 
-          <!-- <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: flex-start;">
+          <div id="map-content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
   
-            <div id="threshold-container" style="margin-right: 20px; flex: 0 0 150px;"> 
-              <label for="threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 1em;">Select the minimum number of characters:</label>
-              <select id="threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 1.5em;" onchange="updateMap(this.value)">
+            <div id="map-threshold-container" style="margin-right: 20px; width: 120px;">
+              <label for="map-threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 1em;">Select the minimum number of characters:</label>
+              <select id="map-threshold-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 1em;" onchange="updateMap(this.value)">
                 <option value="1">1</option>
                 <option value="5">5</option>
                 <option value="10" selected>10</option>
@@ -527,22 +527,22 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
                 <option value="800">800</option>
               </select>
             </div>
-            
-            <div id="image-container" style="text-align: center; position: relative; width: 180%;"> 
-              <h2 style="font-size: 2em; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Ratio of Good (1) to Evil (0) Characters by Country</h2>
-              <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%; max-width: none;"> 
+          
+            <div id="map-image-container" style="text-align: center; width: 60%;">
+              <h2 id="map-title" style="font-size: 1.4em; color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; margin-bottom: 13px;">Ratio of 'good' (1) to 'evil' (0) characters by country</h2>
+              <img id="map-image" src="plots/map_for_k_10.png" alt="Map Visualization" style="width:100%; max-width: none;">
             </div>
-            
+          
           </div>
           
           <script>
             function updateMap(value) {
               document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
             }
-          </script> -->
+          </script>
 
-          <!-- Map Section -->
-          <div id="map-content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: flex-start;">
+
+          <!-- <div id="map-content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: flex-start;">
             
             <div id="map-threshold-container" style="margin-right: 20px; flex: 0 0 150px;">
               <label for="map-threshold-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 1em;">Select the minimum number of characters:</label>
@@ -570,7 +570,7 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
             function updateMap(value) {
               document.getElementById("map-image").src = `plots/map_for_k_${value}.png`;
             }
-          </script>
+          </script> -->
 
 
           <p>
@@ -751,35 +751,6 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
 
           <h3 class="text-xl font-semibold mb-3">Character names by countries</h3>
 
-          <!-- <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
-            
-            <div id="threshold-container" style="margin-right: 20px; width: 120px;">
-              <label for="country-selector" style="display: block; text-align: center; margin-bottom: 5px; font-size: 0.8em;">Select the country:</label>
-              <select id="country-selector" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 0.8em;" onchange="updateWordcloud(this.value)">
-                <option value="United States" selected>United States</option>
-                <option value="India">India</option>
-                <option value="Japan">Japan</option>
-                <option value="France">France</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Italy">Italy</option>
-                <option value="Argentina">Argentina</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Algeria">Algeria</option>
-              </select>
-            </div>
-
-          <div id="image-container" style="text-align: center; position: relative; width: 60%;">
-            <h2 style="font-size: 2em; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 5px; z-index: 1;">Word Cloud</h2>
-            <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%; max-width: none;">
-          </div>
-
-          <script>
-            function updateWordcloud(value) {
-              document.getElementById("wordcloud-image").src = `plots/wordcloud_for_${value}.png`;
-            }
-          </script> -->
-
-          <!-- Word Cloud Section -->
           <div id="wordcloud-content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; align-items: center;">
             
             <div id="wordcloud-threshold-container" style="margin-right: 20px; width: 120px;">
@@ -797,16 +768,10 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               </select>
             </div>
 
-            <!-- <div id="wordcloud-image-container" style="text-align: center; position: relative; width: 60%;">
-              <h2 id="wordcloud-title" style="font-size: 1.4em; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; z-index: 1;">Word Cloud</h2>
-              <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%; max-width: none;">
-            </div> -->
-
             <div id="wordcloud-image-container" style="text-align: center; width: 60%;">
               <h2 id="wordcloud-title" style="font-size: 1.4em; color: rgb(0, 0, 0); padding: 5px; border-radius: 5px; margin-bottom: 20px;">Word cloud of character's name</h2>
               <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%; max-width: none;">
             </div>            
-            
 
           </div>
 
@@ -815,44 +780,9 @@ We run this test on some stereotypical country-genre pairs to prove the statisti
               document.getElementById("wordcloud-image").src = `plots/wordcloud_for_${value}.png`;
             }
           </script>
-
-
-          
-          <br/><br/>
-
-          <!-- <div id="content-container" class="container mx-auto my-4" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-  
-            <div id="selector-container" style="text-align: center; margin-bottom: 20px;">
-              <label for="country-selector" style="font-size: 0.8em;">Select the country:</label>
-              <select id="country-selector" class="appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1 px-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-white-500" style="font-size: 0.8em;" onchange="updateWordcloud(this.value)">
-                <option value="United States" selected>United States</option>
-                <option value="India">India</option>
-                <option value="Japan">Japan</option>
-                <option value="France">France</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Italy">Italy</option>
-                <option value="Argentina">Argentina</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Algeria">Algeria</option>
-              </select>
-            </div>
-            
-            <h2 style="color: black; margin-bottom: 20px;">Word Cloud</h2>
-            <div id="image-container" style="width: 60%; margin-bottom: 20px;">
-              <img id="wordcloud-image" src="plots/wordcloud_for_United States.png" alt="Wordcloud Visualization" style="width:100%;">
-            </div>
-            
-          </div>
-          
-          <script>
-            function updateWordcloud(value) {
-              document.getElementById("wordcloud-image").src = `plots/wordcloud_for_${value}.png`;
-            }
-          </script> -->
           
           <br/><br/>
           
-
           <p>
             This visualization displays the word clouds generated for these countries, 
             where the size of each name represents its frequency or prevalence in the dataset. 
